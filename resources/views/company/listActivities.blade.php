@@ -89,7 +89,7 @@
             <a href="###"><i class="fab fa-facebook"></i></a> 
             <a href="###"><i class="fab fa-twitter-square"></i></a> 
             <a href="###"><i class="fab fa-instagram"></i></a></b></p>
-            <p><b>Todos los derechos Reservados. GCACTIVA COMPANY  &copy;</b></p>
+            <p><b>Todos los derechos Reservados. Vive Tu Gran Canaria COMPANY  &copy;</b></p>
             </footer>
     </body>
 </html>

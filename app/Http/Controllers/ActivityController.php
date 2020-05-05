@@ -23,9 +23,10 @@ class ActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($companyid)
     {
-        //
+        $id=$companyid;
+        return view('company.createActivity', compact('id'));
     }
 
     /**
@@ -34,8 +35,28 @@ class ActivityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
+        $activity = new Activity;
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+            $activity->image=$fileNameToStore;
+        }
+        $activity->name=$request->name;
+        $activity->type=$request->type;
+        $activity->description=$request->description;
+        $activity->price=$request->price;
+        $activity->capacity=$request->capacity;
+        $activity->start=$request->start;
+        $activity->duration=$request->duration;
+        $activity->companyid=$id;
+
+        $activity->save();
+        return redirect(route('listActivities', $id));
         //
     }
 
