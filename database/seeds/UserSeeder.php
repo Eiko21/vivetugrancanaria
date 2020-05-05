@@ -17,14 +17,21 @@ class UserSeeder extends Seeder
                 'email' => 'clienteprueba@gmail.com',
                 'password' => bcrypt('cliente'),
                 'role' => 'cliente',
-                'city' => 'Las Palmas de Gran Canaria',
+                'city' => 'Guía',
             ],
             [
                 'name' => 'empresaprueba',
                 'email' => 'empresaprueba@gmail.com',
                 'password' => bcrypt('empresa'),
                 'role' => 'empresa',
-                'city' => 'Las Palmas de Gran Canaria',
+                'city' => 'Gáldar',
+            ],
+            [
+                'name' => 'empresaprueba2',
+                'email' => 'empresaprueba2@gmail.com',
+                'password' => bcrypt('empresa2'),
+                'role' => 'empresa',
+                'city' => 'Moya',
             ],
             [
                 'name' => 'administrador',

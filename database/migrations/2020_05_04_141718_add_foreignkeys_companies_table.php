@@ -15,10 +15,10 @@ class AddForeignkeysCompaniesTable extends Migration
     {
         Schema::table('companies', function (Blueprint $table) {
             $table->unsignedBigInteger('companyid')->change();
-            $table->foreign('companyid')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('companyid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
-    }
 
+    }
     /**
      * Reverse the migrations.
      *
@@ -30,5 +30,6 @@ class AddForeignkeysCompaniesTable extends Migration
             $table->dropForeign(['companyid']);
             $table->dropColumn('companyid');
         });
+
     }
 }
