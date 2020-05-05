@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+/*rutas para actividades (listar, añadir, modificar y eliminar)*/
+Route::get('/activities/{companyid}/list', 'ActivityController@listActivitiesCompany')->name('listActivities'); //listado actividades propias empresa
+

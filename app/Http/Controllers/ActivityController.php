@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Activity;
+use App\User;
 
 class ActivityController extends Controller
 {
@@ -81,4 +83,11 @@ class ActivityController extends Controller
     {
         //
     }
+
+    public function listActivitiesCompany($companyid){
+        $activities = Activity::where('companyid', '=',$companyid);
+        $activities= $activities->get();
+        return view('company.listActivities', compact('activities'));
+    }
+
 }
