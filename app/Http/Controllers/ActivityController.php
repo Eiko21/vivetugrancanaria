@@ -23,7 +23,7 @@ class ActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
     }
@@ -87,7 +87,7 @@ class ActivityController extends Controller
     public function listActivitiesCompany($companyid){
         $activities = Activity::where('companyid', '=',$companyid);
         $activities= $activities->get();
-        return view('company.listActivities', compact('activities'));
+        return view('company.listActivities', compact('activities', 'companyid'));
     }
 
 }

@@ -74,8 +74,12 @@
         <div>
             <div id="list-title" style="text-align:center; color:#3FF1D2; font-style:20px"><h2>Listado de actividades</h2></div>
         </div>
+        <form style="margin-bottom: 30px; padding-left: 5.5%; align:center" action="{{  url(route('create', $companyid))  }}" method="GET">
+                @csrf
+                <input style="align:center; background-color:#CBEDFF;color:black;" type="submit" name="create-activity" value="Añadir actividad">
+            </form>
          @if($activities->isEmpty())
-            <h3>Aún no tienes actividades</h3> 
+            <h3>Oh Oh! Aún no tienes actividades Puedes añadirla en el botón 'Añadir actividad'</h3> 
          @else        
         <div class="content">
             <div class="form_add_user flex-center">
@@ -110,7 +114,15 @@
                             </td>
                             <td>
                                 <div id="contenedorBotones">
-                                
+                                <form class="form-buttons" action="{{  url(route('edit', $activity->id))  }}" method="GET">
+                                    @csrf
+                                    <input class="botonListado"  id="update" type="submit" name="update-activity" value="Modificar Actividad">
+                                </form>
+                                <form class="form-delete form-buttons" action="{{  url(route('delete', $activity->id))  }}" method="POST">
+                                    <input type='hidden' name='_method' value='DELETE'>
+                                    @csrf
+                                    <input class="botonListado" id="delete" type="submit" name="delete-user" value="Eliminar Actividad">
+                                </form>
                                 </div>
                             </td>
                         </tr>
