@@ -23,11 +23,14 @@
                     <tr>
                         <th>Foto</th>
                         <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Aforo</th>
+                        <th>Duración</th>
                         <th>Precio</th>
-                        <th>Fecha</th>  
+                        <th>Fecha</th> 
+                        <th>Empresa</th> 
                         <th></th>
                     </tr>
-                    @foreach ($activities as $activity)
                         <tr>
                             <td>
                                 @if($activity->image !== null)
@@ -36,11 +39,14 @@
                                     <p>Sin imagen</p>
                                 @endif
                             </td>
-                            <td><a href="{{ action('ActivityController@details', ['id' => $activity->id])}}">{{$activity->name}}</a></td>                          
+                            <td>{{ $activity->name }}</td>                          
+                            <td>{{ $activity->type }}</td>
+                            <td>{{ $activity->capacity }}</td>
+                            <td>{{ $activity->duration }}</td>
                             <td>{{ $activity->price }}</td>
                             <td>{{ $activity->start }}</td>
+                            <td>{{ $activity->companyid }}</td>
                         </tr>
-                    @endforeach 
                 </table>
             </div>
         </div>
