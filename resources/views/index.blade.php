@@ -21,40 +21,28 @@
             <div class="form_add_activities flex-center">
                 <table>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Tipo</th>
-                        <th>Descripcion</th>
-                        <th>Precio</th>
-                        <th>Capacidad</th>
-                        <th>Fecha</th>
-                        <th>Duracion</th>
                         <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Fecha</th>  
                         <th></th>
                     </tr>
-                    @foreach ($activities as $activities)
+                    @foreach ($activities as $activity)
                         <tr>
-                            <td>{{ $activities->name }}</td>
-                            <td>{{ $activities->type }}</td>
-                            <td>{{ $activities->description }}</td>
-                            <td>{{ $activities->price }}</td>
-                            <td>{{ $activities->capacity }}</td>
-                            <td>{{ $activities->start }}</td>
-                            <td>{{ $activities->duration }}</td>
                             <td>
-                                @if($activities->image !== null)
-                                    <img src="{{ asset('img/'.$activities->image) }}" width="100" height="100" >
+                                @if($activity->image !== null)
+                                    <img src="{{ asset('img/'.$activity->image) }}" width="100" height="100" >
                                 @else
-                                    <p>Sin foto</p>
+                                    <p>Sin imagen</p>
                                 @endif
                             </td>
+                            <td><a href="{{ action('ActivityController@details, activity->$id') }}">{{$activity->name}}</a></td>                          
+                            <td>{{ $activity->price }}</td>
+                            <td>{{ $activity->start }}</td>
+
 
                         </tr>
-                    @endforeach
-                    <script>
-                        $(".delete").on("submit", function(){
-                            return confirm("¿Está seguro de que desea eliminar esta actividad?");
-                        });
-                    </script>   
+                    @endforeach 
                 </table>
             </div>
         </div>
