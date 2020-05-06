@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/users', 'UserController@index');
+Route::get('/companies', 'CompanyController@index');
+Route::get('/companies/{id}', 'CompanyController@show')->name('show');
