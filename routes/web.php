@@ -21,3 +21,6 @@ Route::get('/users', 'UserController@index');
 Route::get('/tickets', 'TicketController@index');
 Route::get('/companies', 'CompanyController@index');
 Route::get('/companies/{id}', 'CompanyController@show')->name('show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

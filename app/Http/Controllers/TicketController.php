@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ticket;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
@@ -16,7 +17,7 @@ class TicketController extends Controller
     {
         $current_client=Auth::user()->id;
         $tickets=Ticket::all()->where('clientid',$current_client);
-        return view('client.tickets', compact('tickets'));
+        return view('ticket', compact('tickets'));
     }
 
     /**
