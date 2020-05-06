@@ -79,22 +79,32 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+        <table id="listado">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Ciudad</th>
+                    <th>Foto</th>
+                    
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
+                </tr>
+                @foreach ($users as $user)
+                    <tr>
+                        <td><b>{{ $user->name }}</b></td>
+                        <td><b>{{ $user->email }}</b></td>
+                        <td><b>{{ $user->role }}</b></td>
+                        <td><b>{{ $user->city}}</b></td>
+                        <td>
+                            @if($user->image !== null)
+                                <img src="{{ asset('img/'.$user->image) }}" width="100" height="100" >
+                            @else
+                                <p><b><i>Sin foto</i></b></p>
+                            @endif
+                        </td>
+                    </tr>
+                @endforeach
+
+            </table>
     </body>
 </html>
