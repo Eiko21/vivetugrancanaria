@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ticket;
 
 class TicketController extends Controller
 {
@@ -13,7 +14,9 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $current_client=Auth::user()->id;
+        $tickets=Ticket::all()->where('clientid',$current_client);
+        return view('client.tickets', compact('tickets'));
     }
 
     /**
