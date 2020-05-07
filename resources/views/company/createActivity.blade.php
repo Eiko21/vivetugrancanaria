@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Añadir Actividad</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- Styles -->
-        <!-- Styles -->
+
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'>
       
@@ -76,7 +76,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="submit" name="store-activity" value="Añadir">
+                                <input class="btn-blue" type="submit" name="store-activity" value="AÑADIR">
                             </td>
                         </tr>
                         <input type="hidden" name="companyid" id="companyid" value="'.$companyid.'">
@@ -84,12 +84,13 @@
                 </form>
             </div>
         </div><br><br><br>
-       <footer class="footer">
+    <footer class="footer">
             <p><b>
             <a href="###"><i class="fab fa-facebook"></i></a> 
             <a href="###"><i class="fab fa-twitter-square"></i></a> 
             <a href="###"><i class="fab fa-instagram"></i></a></b></p>
-            <p><b>Todos los derechos Reservados. Vive Tu Gran Canaria COMPANY  &copy;</b></p>
+
+            <p><b>Todos los derechos Reservados. VIVETUGRANCANARIA COMPANY  &copy;</b></p>
             </footer>
     </body>
 </html>

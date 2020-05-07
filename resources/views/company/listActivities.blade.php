@@ -18,15 +18,14 @@
         <div class="m-b-md">
             <b>Actividades</b>
         </div>
-       
-        
+              
           
         <div>
-            <div id="list-title" style="text-align:center; color:#3FF1D2; font-style:20px"><h2>Listado de actividades</h2></div>
+            <div id="list-title" style="margin-left:650px; color:#008CBA; font-size:40px"><h2>Listado de actividades</h2></div>
         </div>
         <form style="margin-bottom: 30px; padding-left: 5.5%; align:center" action="{{  url(route('create', $companyid))  }}" method="GET">
                 @csrf
-                <input style="align:center; background-color:#CBEDFF;color:black;" type="submit" name="create-activity" value="Añadir actividad">
+                <input style="margin-left:750px; background-color:#CBEDFF;color:black;" type="submit" name="create-activity" value="Añadir actividad">
             </form>
          @if($activities->isEmpty())
             <h3>Oh Oh! Aún no tienes actividades Puedes añadirla en el botón 'Añadir actividad'</h3> 
@@ -89,7 +88,8 @@
             <a href="###"><i class="fab fa-facebook"></i></a> 
             <a href="###"><i class="fab fa-twitter-square"></i></a> 
             <a href="###"><i class="fab fa-instagram"></i></a></b></p>
-            <p><b>Todos los derechos Reservados. Vive Tu Gran Canaria COMPANY  &copy;</b></p>
+
+            <p><b>Todos los derechos Reservados. VIVETUGRANCANARIA COMPANY  &copy;</b></p>
             </footer>
     </body>
 </html>
