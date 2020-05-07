@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
                 'name' => 'administrador',
                 'email' => 'admin@vivetugrancanaria.com',
                 'password' => bcrypt('admin'),
-                'role' => 'admin',
+                'role' => 'administrador',
                 'city' => 'Las Palmas de Gran Canaria',
             ]
         ]);

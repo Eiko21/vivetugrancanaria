@@ -42,7 +42,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href=" {{ asset('css/style.css') }} " rel="stylesheet">
+    <link href=" {{ asset('css/app.css') }} " rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100">
     <header>
@@ -54,9 +54,30 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
+      @if(User::hasRole("")))
         <li class="nav-item active">
           <a class="nav-link" href="#">Actividades <span class="sr-only">(current)</span></a>
         </li>
+        @else
+            @if($current_client_rol === 'empresa')
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Listado Usuarios <span class="sr-only">(current)</span></a>
+            </li>
+
+            @elsif ($current_client_rol === 'administrador')
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Listado Actividades <span class="sr-only">(current)</span></a>
+            </li>
+
+            @elsif ($current_client_rol === 'cliente')
+                <li class="nav-item active">
+              <a class="nav-link" href="#">Mis Tickets <span class="sr-only">(current)</span></a>
+            </li>
+            @endif
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Cerrar Sesión <span class="sr-only">(current)</span></a>
+        </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link" href="#">Sobre nosotros</a>
         </li>
