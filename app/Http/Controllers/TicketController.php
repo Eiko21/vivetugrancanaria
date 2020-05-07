@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ticket;
 use Illuminate\Support\Facades\Auth;
+use App\Activity;
 
 class TicketController extends Controller
 {
@@ -17,6 +18,12 @@ class TicketController extends Controller
     {
         $current_client=Auth::user()->id;
         $tickets=Ticket::all()->where('clientid',$current_client);
+        if($tickets->count()>0){
+            foreach($tickets as $ticket){
+                $ticket->activity = Activity::findOrFail($ticket->activityid);
+              }    
+        }
+       
         return view('ticket', compact('tickets'));
     }
 

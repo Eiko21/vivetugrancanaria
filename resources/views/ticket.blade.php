@@ -79,21 +79,24 @@
                 </div>
             @endif
 
-        <table id="listado">
-            @if($tickets->count() > 0){
-                @foreach ($tickets as $ticket)
+            @if($tickets->count() > 0)
+                <table id="listado">
                     <tr>
-                        <td><b>{{ $ticket->name }}</b></td>
-                        <td><b>{{ $ticket->email }}</b></td>
-                        <td><b>{{ $ticket->role }}</b></td>
-                        <td><b>{{ $ticket->city}}</b></td>
-
+                        <th>Nombre de la actividad</th>
+                        <th>Precio ticket</th>
+                        <th>Cantidad comprada</th>
                     </tr>
-                @endforeach
+                    @foreach ($tickets as $ticket)
+                    <tr>
+                        <td><b>{{ $ticket->activity->name }}</b></td>
+                        <td><b>{{ $ticket->price }}</b></td>
+                        <td><b>{{ $ticket->quantity }}</b></td>
+                    </tr>
+                    @endforeach
+                </table>
             @else
                 <p>No tienes ningún ticket</p>
             @endif
 
-        </table>
     </body>
 </html>
