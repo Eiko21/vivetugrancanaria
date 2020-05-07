@@ -47,7 +47,8 @@ class ActivityController extends Controller
      */
     public function show($id)
     {
-        //
+        $activity=Activity::findOrFail($id);
+        return view('activitydetails', compact('activity'));
     }
 
     /**
@@ -83,22 +84,4 @@ class ActivityController extends Controller
     {
         //
     }
-
-    /**
-     * Lista los detalles de la actividad seleccionada
-     *
-     * @param  int  $id
-     * @return \Activities\id
-     */
-
-    public function details($id)
-    {
-
-        $activity=Activity::findOrFail($id);
-        return view('activitydetails', compact('activity'));
-
-    }
-
-
-
 }

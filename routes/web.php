@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/activities', 'ActivityController@index')->name('index');
-Route::get('/activities/{id}', 'ActivityController@details')->name('activitydetails');
+Route::get('/activities/{id}', 'ActivityController@show')->name('show');
