@@ -81,9 +81,4 @@ class UserController extends Controller
     {
         //
     }
-
-    /*public function rol($id){
-        $current_client_rol=Auth::user($id)->role;
-        return view('/home', compact('current_client_rol'));
-    }*/
 }

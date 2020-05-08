@@ -54,44 +54,62 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-      @if(User::hasRole("")))
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Actividades <span class="sr-only">(current)</span></a>
-        </li>
-        @else
-            @if($current_client_rol === 'empresa')
+        @guest
             <li class="nav-item active">
-              <a class="nav-link" href="#">Listado Usuarios <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Actividades</a>
             </li>
-
-            @elsif ($current_client_rol === 'administrador')
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Listado Actividades <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
-
-            @elsif ($current_client_rol === 'cliente')
-                <li class="nav-item active">
-              <a class="nav-link" href="#">Mis Tickets <span class="sr-only">(current)</span></a>
+            @if (Route::has('register'))
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
             @endif
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Cerrar Sesión <span class="sr-only">(current)</span></a>
-        </li>
-        @endif
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sobre nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
+        @else
+            @if(Auth::user()->role === ('empresa'))
+                            
+            <li class="nav-item active">                                
+                a class="nav-link" href="#">Listado Actividades</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Listado Usuarios</a>
+            </li>
+            @endif
+            @if(Auth::user()->role === ('administrador'))
+
+            <li class="nav-item active">                                
+                <a class="nav-link" href="#">Listado Usuarios</a>
+            </li>
+            @endif
+            @if(Auth::user()->role === ('cliente'))
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Actividades</a>
+                </li>
+            @endif
+                <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                         </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                                      {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
+    </ul>
       <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" type="text" placeholder="Busca alguna actividad" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
   </nav>
 </header>
-
-<!-- Begin page content -->
-<main role="main" class="flex-shrink-0">
