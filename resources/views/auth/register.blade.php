@@ -10,7 +10,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
@@ -38,23 +37,30 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de perfil') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="role" type="radio" class="form-control @error('role') is-invalid @enderror" name="role" 
-                                value="cliente" required autocomplete="role">Cliente
-                                <input id="role" type="radio" class="form-control @error('role') is-invalid @enderror" name="role" 
-                                value="empresa" required autocomplete="role">Empresa
-
-                                @error('role')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <fieldset class="form-group">
+                        <div class="row">
+                          <legend class="col-md-4 col-form-label text-md-right">{{ __('Tipo de perfil') }}</legend>
+                          <div class="col-md-6">
+                            <div class="form-check">
+                              <input class="form-check-input @error('role') is-invalid @enderror" type="radio" name="role" id="cliente" value="cliente" required autocomplete="role">
+                              <label class="form-check-label" for="cliente">
+                                Cliente
+                              </label>
                             </div>
+                            <div class="form-check">
+                              <input class="form-check-input @error('role') is-invalid @enderror" type="radio" name="role" id="empresa" value="empresa" required autocomplete="role">
+                              <label class="form-check-label" for="empresa">
+                                Empresa
+                              </label>
+                            </div>
+                                    @error('role')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                           </div>
                         </div>
+                      </fieldset>
 
                         <div class="form-group row">
                             <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Ciudad') }}</label>
@@ -94,7 +100,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-info">
                                     {{ __('Register') }}
                                 </button>
                             </div>
