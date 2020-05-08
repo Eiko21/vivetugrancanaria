@@ -41,7 +41,7 @@
             <!--<div class="form_add_user flex-center">   -->
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
-                <thead class="thead-dark">
+                <thead class="bg-info">
                     <tr>
                         <th>Nombre</th>
                         <th>Tipo</th>
@@ -75,7 +75,7 @@
                                 <div id="contenedorBotones">
                                 <form class="form-buttons" action="{{  url(route('edit', $activity->id))  }}" method="GET">
                                     @csrf
-                                    <button type="submit" id="update" name="update-activity" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                    <button type="submit" id="update" name="update-activity" class="btn btn-success"><i class="fas fa-edit"></i></button>
                                 </form>
                             </td>
                             <td>
