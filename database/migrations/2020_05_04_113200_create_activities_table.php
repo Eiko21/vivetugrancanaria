@@ -18,7 +18,7 @@ class CreateActivitiesTable extends Migration
             $table->string('name');
             $table->string('type');
             $table->text('description');
-            $table->float('price',5,2);
+            $table->float('price',4,2);
             $table->integer('capacity');
             $table->date('start');
             $table->integer('duration');
