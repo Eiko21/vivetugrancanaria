@@ -71,15 +71,15 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->hasFile('image')){
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
+        if($request->hasFile('logo')){
+            $filenameWithExt = $request->file('logo')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('image')->getClientOriginalExtension();
+            $extension = $request->file('logo')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_' .time().'.' .$extension;
-            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+            $path=$request->file('logo')->move(public_path('/img'), $fileNameToStore);
         }
         $company=Company::findOrFail($id);
-        if($request->hasFile('image')) $company->image = $fileNameToStore;
+        if($request->hasFile('logo')) $company->logo = $fileNameToStore;
         $company->update($request->all());
         return redirect(route('home'));
     }
