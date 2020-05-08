@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
 
 class CompanyController extends Controller
 {
@@ -13,7 +14,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies=Company::all();
+        return view('company.index', compact('companies'));
     }
 
     /**
@@ -56,7 +58,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $details=Company::findOrFail($id);
+        return view('company.update', compact('details'));
     }
 
     /**
@@ -68,7 +71,17 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+        }
+        $company=Company::findOrFail($id);
+        if($request->hasFile('image')) $company->image = $fileNameToStore;
+        $company->update($request->all());
+        return redirect(route('home'));
     }
 
     /**
