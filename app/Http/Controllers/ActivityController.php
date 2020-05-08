@@ -79,6 +79,15 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $activity=Activity::findOrFail($id);
+ 
+        if(!empty($activity->image)){
+            if(file_exists(public_path('/img/'.$activity->image))){
+                unlink(public_path('/img/'.$activity->image));
+            }
+        }
+ 
+        $activity->delete();
+        return redirect(route('home'));
     }
 }
