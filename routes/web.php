@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+Auth::routes();
 
 /*rutas para actividades (listar, añadir, modificar y eliminar)*/
 Route::get('/home/activities/{companyid}/list', 'ActivityController@listActivitiesCompany')->name('listActivities'); //listado actividades propias empresa
@@ -23,3 +22,5 @@ Route::post('/home/activities/{companyid}/list', 'ActivityController@store')->na
 Route::get('/home/activities/{companyid}/edit', 'ActivityController@edit')->name('edit'); //Vista para modificar actividades
 Route::put('/home/activities/{companyid}', 'ActivityController@update')->name('update'); //Método para modificar actividad en BD
 Route::delete('/activities/{companyid}', 'ActivityController@delete')->name('delete'); //Método para eliminar
+Route::get('/home', 'HomeController@index')->name('home');
+
