@@ -10,7 +10,4 @@ html, body {
 .table-hover tbody tr:hover td{
     background-color:#F2FBFF;
 }
-/*.table thead tr{
-    background-color:#4ABAEC;
-}
-*/
+

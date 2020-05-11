@@ -35,8 +35,6 @@
         @if($activities->isEmpty())
             <h3>Oh Oh! Aún no tienes actividades Puedes añadirla en el botón 'Añadir actividad'</h3> 
          @else        
-            
-            <!--<div class="form_add_user flex-center">   -->
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
                 <thead class="bg-info">
@@ -89,7 +87,6 @@
                 </tbody>
                 </table>
                 </div>
-            <!--</div>-->
            @endif
         </div> 
         
