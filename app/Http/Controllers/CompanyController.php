@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Company;
+use App\User;
 
 class CompanyController extends Controller
 {
@@ -14,7 +14,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies=Company::all();
+        $companies=User::all()->where('role','empresa');
         return view('company.index', compact('companies'));
     }
 
@@ -58,7 +58,7 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $details=Company::findOrFail($id);
+        $details=User::findOrFail($id);
         return view('company.update', compact('details'));
     }
 
@@ -71,17 +71,17 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->hasFile('logo')){
-            $filenameWithExt = $request->file('logo')->getClientOriginalName();
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('logo')->getClientOriginalExtension();
+            $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_' .time().'.' .$extension;
-            $path=$request->file('logo')->move(public_path('/img'), $fileNameToStore);
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
         }
-        $company=Company::findOrFail($id);
-        if($request->hasFile('logo')) $company->logo = $fileNameToStore;
+        $company=User::findOrFail($id);
+        if($request->hasFile('image')) $company->image = $fileNameToStore;
         $company->update($request->all());
-        return redirect(route('home'));
+        return redirect(route('index'));
     }
 
     /**
