@@ -79,8 +79,11 @@ class CompanyController extends Controller
             $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
         }
         $company=User::findOrFail($id);
+        $company->name=$request->input('name');
         if($request->hasFile('image')) $company->image = $fileNameToStore;
-        $company->update($request->all());
+        $company->description=$request->input('description');
+        $company->contact=$request->input('contact');
+        $company->save();
         return redirect(route('index'));
     }
 
