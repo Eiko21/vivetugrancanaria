@@ -20,9 +20,7 @@
         </head>
     <body>
     <div class="container">
-        <div class="m-b-md">
-            <b>Actividades</b>
-        </div>         
+                
         <div>
             <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px"><h2>Listado de actividades</h2></div>
         </div>
