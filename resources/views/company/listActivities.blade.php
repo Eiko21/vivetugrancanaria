@@ -83,7 +83,6 @@
                                     <input type='hidden' name='_method' value='DELETE'>
                                     @csrf
                                     <button type="submit" id="delete" name="delete-activity"class="btn btn-danger"><i class="fas fa-trash"></i></button>
- 
                                 </form>
                                 </div>
                             </td>
