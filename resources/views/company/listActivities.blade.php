@@ -35,19 +35,19 @@
                             <td>{{ $activity->type }}</td>
                             <td>{{ $activity->description }}</td>
                             <td>{{ $activity->price }} €</td>
-                            <td>{{ $activity->capacity }}</td>
+                            <td>{{ $activity->capacity }} personas</td>
                             <td>{{ $activity->start }}</td>
                             <td>{{ $activity->duration }}</td>
                             <td>
                                 @if($activity->image !== null)
-                                    <img src="{{ asset('img/'.$activity->image) }}" width="100" height="100" >
+                                <img src="<?php echo asset('img/' . $activity->image); ?>"  width="100" height="100">                                
                                 @else
                                     <p><b><i>Actividad sin imagen</i></b></p>
                                 @endif
                             </td>
                             <td>
                                 <div id="contenedorBotones">
-                                <a href="{{  url(route('edit', $activity->id))  }}" id="update-activity"class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="{{  url(route('edit', $activity->id, $companyid))  }}" id="update-activity"class="btn btn-success"><i class="fas fa-edit"></i></a>
                             </td>
                             <td>
                                 <form class="form-delete form-buttons" action="{{  url(route('delete', $activity->id))  }}" method="POST">
