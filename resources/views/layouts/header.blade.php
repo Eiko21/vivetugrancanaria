@@ -46,7 +46,7 @@
             @endif
                 <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name }}
                          </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -63,8 +63,8 @@
                 </li>
             @endguest
     </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Busca alguna actividad" aria-label="Search">
+      <form class="form-inline mt-2 mt-md-0 pull-right">
+        <input class="form-control mr-sm-4" type="text" placeholder="Busca alguna actividad" aria-label="Search">
         <button type="button" class="btn bg-info"><i class="fas fa-search"></i></button>
       </form>
     </div>
