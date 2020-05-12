@@ -30,7 +30,9 @@
                             <th>Fecha</th>
                             <th>Duración</th>
                             <th>Imagen</th>
-                            <th colspan="2">Acciones</th>
+                            @if(!Auth::guest() && Auth::user()->role === ('empresa'))
+                                <th colspan="2">Acciones</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -50,18 +52,20 @@
                                         <p><b><i>Actividad sin imagen</i></b></p>
                                     @endif
                                 </td>
-                                <td>
-                                    <div id="contenedorBotones">
-                                    <a href="{{  url(route('editactivity', $activity->id))  }}" id="update-activity"class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                </td>
-                                <td>
-                                    <form class="form-delete form-buttons" action="{{  url(route('deleteactivity', $activity->id))  }}" method="POST">
-                                        <input type='hidden' name='_method' value='DELETE'>
-                                        @csrf
-                                        <button type="submit" id="delete" name="delete-activity"class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                    </form>
-                                    </div>
-                                </td>
+                                @if(!Auth::guest() && Auth::user()->role === ('empresa'))
+                                    <td>
+                                        <div id="contenedorBotones">
+                                        <a href="{{  url(route('editactivity', $activity->id))  }}" id="update-activity"class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                    <td>
+                                        <form class="form-delete form-buttons" action="{{  url(route('deleteactivity', $activity->id))  }}" method="POST">
+                                            <input type='hidden' name='_method' value='DELETE'>
+                                            @csrf
+                                            <button type="submit" id="delete" name="delete-activity"class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                        </div>
+                                    </td>
+                                @endif
                             </tr>                        
                         @endforeach
                     </tbody>

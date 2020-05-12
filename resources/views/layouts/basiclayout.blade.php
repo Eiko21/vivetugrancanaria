@@ -31,13 +31,13 @@
             <ul class="navbar-nav mr-auto">
                 @guest        
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Actividades</a>
+                        <a class="nav-link active" href="{{ route('indexactivities') }}">Actividades</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif 
@@ -58,15 +58,18 @@
                     @endif
                     @if(Auth::user()->role === ('cliente'))
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Actividades</a>
+                            <a class="nav-link" href="{{ route('indexactivities') }}">Actividades</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('indextickets') }}">Tickets</a>
                         </li>
                     @endif
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                    <li class="nav-item active">
+                        {{-- <div> --}}
+                            {{-- <a id="navbarDropdown" class="nav-link" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a> --}}
+                            <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -74,7 +77,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                        </div>
+                        {{-- </div> --}}
                     </li>
                 @endguest
             </ul>
@@ -97,8 +100,8 @@
                         <div class="col-md-12">
                             <div class="copyright-text">
                                 <p>© 2020
-                                    <a href="#">ViveTuGranCanaria</a>. Todos los derechos reservados. Creado por
-                                    <a href="#">MdaCompany | Grupo02</a>
+                                    <b>ViveTuGranCanaria</b>. Todos los derechos reservados. Creado por
+                                    <b>MdaCompany | Grupo02</b>
                                 </p>
                             </div>                
                             <div class="go_top">
