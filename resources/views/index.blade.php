@@ -36,7 +36,7 @@
                                     <p>Sin imagen</p>
                                 @endif
                             </td>
-                            <td><a href="{{ action('ActivityController@details', ['id' => $activity->id])}}">{{$activity->name}}</a></td>                          
+                            <td><a href="{{action('ActivityController@show', ['id' => $activity->id])}}">{{$activity->name}}</a></td>                          
                             <td>{{ $activity->price }}</td>
                             <td>{{ $activity->start }}</td>
                         </tr>
