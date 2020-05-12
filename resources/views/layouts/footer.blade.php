@@ -1,4 +1,4 @@
-<footer class="footer mt-auto py-3">
+<footer class="footer footer mt-auto py-3">
   <div class="container">
   <center>
   <div class="mini-footer">
@@ -6,10 +6,10 @@
       <div class="row">
         <div class="col-md-12">
           <div class="copyright-text">
-            <p>© 2020
+            <p><b>© 2020
               <a href="#">ViveTuGranCanaria</a>. Todos los derechos reservados. Creado por
               <a href="#">MdaCompany | Grupo02</a>
-            </p>
+            </b></p>
           </div>
 
           <div class="go_top">
