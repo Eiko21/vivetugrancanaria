@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 class UserController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -48,15 +49,22 @@ class UserController extends Controller
         //
     }
 
+    public function showProfile($id){
+        $user=User::findOrFail($id);
+        return view ('client.profileClient', compact('user'));
+    }
+
     /**
      * Show the form for editing the specified user.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function edit($id)
     {
-        //
+        $user=User::findOrFail($id);
+        return view('client.edit', compact('user'));
     }
 
     /**
@@ -80,5 +88,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function editProfile(){
+        
     }
 }

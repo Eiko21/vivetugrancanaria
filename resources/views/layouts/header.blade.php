@@ -35,11 +35,13 @@
             </li>
             @endif
             @if(Auth::user()->role === ('cliente'))
+            @php($userid=Auth::user()->id)
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Actividades</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Perfil</a>
+                <a class="nav-link" href="{{ route('showProfile', ['userid' => $userid]) }}">Perfil</a>
+                    
                 </li>
             @endif
                 <li class="nav-item dropdown">
