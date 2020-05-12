@@ -39,7 +39,7 @@
                     <a class="nav-link" href="#">Actividades</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Pefil</a>
+                    <a class="nav-link" href="#">Perfil</a>
                 </li>
             @endif
                 <li class="nav-item dropdown">
