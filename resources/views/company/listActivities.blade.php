@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Actividades</title>     
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles  -->
-        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'>
-        
-        <!--Bootstrap-->
-         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-         <!--MIS ESTILO -->
-         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
-        </head>
-    <body>
+@extends('layouts.app')
+@section('content')
     <div class="container">
                 
         <div>
@@ -26,10 +7,7 @@
         </div>
         <div class="row">
             <div class="col text-right">
-                <form action="{{  url(route('create', $companyid))  }}" method="GET">
-                        @csrf
-                        <button type="submit" name="create-activity" id="add-activity" class="btn btn-info"><i class="fas fa-plus-circle"></i> Añadir</button>
-                </form>
+            <a href="{{  url(route('create', $companyid))  }}" id="add-activity" class="btn btn-info"><i class="fas fa-plus-circle"></i> AÑADIR</a>
             </div>
         </div>
         @if($activities->isEmpty())
@@ -69,10 +47,7 @@
                             </td>
                             <td>
                                 <div id="contenedorBotones">
-                                <form class="form-buttons" action="{{  url(route('edit', $activity->id))  }}" method="GET">
-                                    @csrf
-                                    <button type="submit" id="update" name="update-activity" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                                </form>
+                                <a href="{{  url(route('edit', $activity->id))  }}" id="update-activity"class="btn btn-success"><i class="fas fa-edit"></i></a>
                             </td>
                             <td>
                                 <form class="form-delete form-buttons" action="{{  url(route('delete', $activity->id))  }}" method="POST">
@@ -89,7 +64,4 @@
                 </div>
            @endif
         </div> 
-        
-  </body>
-</html>  
-
+@endsection
