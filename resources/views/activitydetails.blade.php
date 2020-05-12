@@ -3,23 +3,29 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 
-        <title>Listado de usuarios</title>
-        <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <!-- Styles -->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    </head>
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'>
+        
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+        </head>
     <body>
-        <div class="m-b-md">
-            <b>Actividades</b>
+    <div class="container">
+                
+        <div>
+            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px"><h2>Listado de actividades</h2></div>
         </div>
 
-        {{-- <div class="flex-center position-ref full-height"> --}}
-        <div class="content">
-            <div class="form_add_activities flex-center">
-                <table>
+            
+            <!--<div class="form_add_user flex-center">   -->
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                <thead class="bg-info">
                     <tr>
                         <th>Foto</th>
                         <th>Nombre</th>
@@ -29,14 +35,15 @@
                         <th>Precio</th>
                         <th>Fecha</th> 
                         <th>Empresa</th> 
-                        <th></th>
                     </tr>
+                </thead>
+                <tbody>
                         <tr>
-                            <td>
+						    <td>
                                 @if($activity->image !== null)
                                     <img src="{{ asset('img/'.$activity->image) }}" width="100" height="100" >
                                 @else
-                                    <p>Sin imagen</p>
+                                    <p><b><i>Actividad sin imagen</i></b></p>
                                 @endif
                             </td>
                             <td>{{ $activity->name }}</td>                          
@@ -46,12 +53,14 @@
                             <td>{{ $activity->price }}</td>
                             <td>{{ $activity->start }}</td>
                             <td>{{ $activity->companyid }}</td>
-                        </tr>
+
+                        </tr>                        
+                </tbody>
                 </table>
-            </div>
-        </div>
-        <footer>
-            <p class="footer"><b>Vive tu Gran Canaria &copy; 2020<b></p>
-        </footer>
-    </body>
-</html>
+                </div>
+            <!--</div>-->
+
+        </div> 
+        
+  </body>
+</html>  

@@ -1,6 +1,6 @@
 html,
 body {
-    background-color: #fff;
+    background-color: #FBFBFB;
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
@@ -8,112 +8,12 @@ body {
     margin: 0;
 }
 
-.full-height {
-    height: 100vh;
+.table-hover tbody tr:hover td {
+    background-color: #F2FBFF;
 }
 
-.flex-center {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
 
-.position-ref {
-    position: relative;
+/*.table thead tr{
+    background-color:#4ABAEC;
 }
-
-.top-right {
-    position: absolute;
-    right: 10px;
-    top: 18px;
-}
-
-.content {
-    text-align: center;
-}
-
-.title {
-    font-size: 30px;
-}
-
-.links>a {
-    color: #636b6f;
-    padding: 0 25px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.m-b-md {
-    margin-bottom: 30px;
-    padding: 2px;
-    padding-left: 20px;
-    font-size: 35px;
-    color: white;
-    background-color: #3FF1D2;
-}
-
-form input[type=submit] {
-    display: block;
-    padding: 10px 30px;
-    font-size: 15px;
-    background-color: #DCF9CA;
-    color: black;
-    align: center;
-    border-radius: 8px;
-    margin: auto;
-}
-
-.form_add_user form {
-    margin-left: 200px;
-    margin-right: 200px;
-    background-color: #F8F8F8;
-    color: black;
-    border-radius: 40px;
-}
-
-.form_add_user input[type=text],
-input[type=password],
-input[type=email],
-select {
-    display: block;
-    color: black;
-    background-color: white;
-    padding: 4px;
-    align: center;
-    margin: auto;
-    border-style: outset;
-}
-
-.form_add_user form input[type=submit] {
-    display: block;
-    padding: 10px 30px;
-    font-size: 15px;
-    background-color: #DCF9CA;
-    color: black;
-    align: center;
-    border-radius: 8px;
-    margin: auto;
-}
-
-.form_add_user form label {
-    display: block;
-    font-style: bold;
-    color: black;
-    text-align: center;
-    padding: 10px 60px;
-    margin: auto;
-}
-
-.footer {
-    font-style: italic;
-    font-size: 20px;
-    text-align: center;
-    background-color: #3FF1D2;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
+*/
