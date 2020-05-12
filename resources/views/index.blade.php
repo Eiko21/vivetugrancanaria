@@ -21,9 +21,6 @@
         <div>
             <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px"><h2>Listado de actividades</h2></div>
         </div>
-
-            
-            <!--<div class="form_add_user flex-center">   -->
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
                 <thead class="bg-info">
@@ -48,7 +45,6 @@
                             <td><a href="{{action('ActivityController@show', ['id' => $activity->id])}}">{{$activity->name}}</a></td>                          
                             <td>{{ $activity->price }}</td>
                             <td>{{ $activity->start }}</td>
-
                         </tr>                        
                     @endforeach
                 </tbody>
