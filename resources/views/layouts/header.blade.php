@@ -27,9 +27,6 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">Listado Usuarios</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Pefil</a>
-            </li>
             @endif
             @if(Auth::user()->role === ('administrador'))
 
@@ -40,6 +37,9 @@
             @if(Auth::user()->role === ('cliente'))
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Actividades</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Pefil</a>
                 </li>
             @endif
                 <li class="nav-item dropdown">
