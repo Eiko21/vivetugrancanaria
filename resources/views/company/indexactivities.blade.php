@@ -18,7 +18,7 @@
                 Oh Oh! Aún no tienes actividades Puedes añadirla en el botón 'Añadir actividad'
             </h3> 
         @else        
-            <div class="table-responsive" style="margin-top:4%; padding-top:4%;">
+            <div class="table-responsive" style="margin-top:4%; padding-top:4%; padding-bottom:8.2%;">
                 <table class="table table-striped table-bordered table-hover">
                     <thead class="bg-info">
                         <tr>
