@@ -1,7 +1,7 @@
 @extends('layouts.basiclayout')
 
 @section('infosection')
-<div class="container" style="margin:11%;">
+<div class="container" style="margin:10%; padding-top:2.8%;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

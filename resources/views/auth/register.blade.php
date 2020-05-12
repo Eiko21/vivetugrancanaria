@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.basiclayout')
 
-@section('content')
-<div class="container">
+@section('infosection')
+<div class="container" style="margin:5%; padding-top:1%; padding-left:15%;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -44,9 +44,9 @@
 
                             <div class="col-md-6">
                                 <input id="role" type="radio" class="form-control @error('role') is-invalid @enderror" name="role" 
-                                value="cliente" required autocomplete="role">Cliente
+                                value="cliente" required autocomplete="role" style="width: 0%; display: inline;">Cliente
                                 <input id="role" type="radio" class="form-control @error('role') is-invalid @enderror" name="role" 
-                                value="empresa" required autocomplete="role">Empresa
+                                value="empresa" required autocomplete="role" style="width: 0%; display: inline;">Empresa
 
                                 @error('role')
                                     <span class="invalid-feedback" role="alert">
