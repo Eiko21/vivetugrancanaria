@@ -24,3 +24,6 @@ Route::get('/companies/{id}', 'CompanyController@show')->name('show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/companies', 'CompanyController@index')->name('index');
+Route::get('/companies/{userid}/edit', 'CompanyController@edit')->name('edit');
+Route::put('/companies/{userid}', 'CompanyController@update')->name('update');
