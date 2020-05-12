@@ -85,7 +85,7 @@
         </div>
     </nav>
 
-    <section >
+    <section>
         @yield('infosection')
     </section>
 
