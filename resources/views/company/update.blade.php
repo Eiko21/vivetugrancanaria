@@ -1,32 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Update page</title>
-    </head>
-    <body>
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-            <div class="top-right links">
-                @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
-                    @endif
-                @endauth
+@extends('layouts.basiclayout')
+@section('infosection')
+    <div class="container" style="margin:7%;">
+        <div>
+            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:10%;">
+                <h2>Actualice su información</h2>
             </div>
-        @endif
-
-        <div class="content">
+        </div>
+        <div class="table-responsive">
             <form action="{{ url(route('update', $details->id)) }}" method="POST" enctype="multipart/form-data">
                 <input type='hidden' name='_method' value='PUT'>
                 @csrf
-                <table>
+                <table class="info-table" style="margin: 5.5%;">
                     <tr>
                         <td><label for="name">Nombre</label></td>
                         <td><input name="name" type="text" value="{{ old('name')??$details->name }}"></td>
@@ -51,5 +35,5 @@
                 </table>
             </form>
         </div>
-    </body>
-</html>
+    </div>
+@endsection
