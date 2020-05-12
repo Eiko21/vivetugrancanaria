@@ -29,7 +29,7 @@
                     </tr>  
                     <tr>
                         <td>
-                            <input type="submit" name="update-user" value="Actualizar">
+                            <input type="submit" name="update-user" value="Actualizar" class="btn btn-primary">
                         </td>
                     </tr>     
                 </table>

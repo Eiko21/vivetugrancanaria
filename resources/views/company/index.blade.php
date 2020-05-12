@@ -35,7 +35,7 @@
                                 <div id="contenedorBotones">
                                     <form class="form-buttons" action="{{  url(route('edit', $company->id))  }}" method="GET">
                                         @csrf
-                                        <input class="botonListado"  id="update" type="submit" name="update-company" value="Actualizar">
+                                        <input class="botonListado btn btn-primary"  id="update" type="submit" name="update-company" value="Actualizar">
                                     </form>
                                 </div>
                             </td>
