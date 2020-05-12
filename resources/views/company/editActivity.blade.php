@@ -51,7 +51,7 @@
                         @endif
                         <div class="form-group col-md-4">
                             <label for="Imagen"><b>Imagen</b></label>
-                                <input type="file"  class="form-control" name="image" id="image">
+                                <input type="file"  class="form-control" name="image" id="image" data-max-size=80000>
                         </div>
                     </center>
                   <input type="hidden" name="companyid" id="companyid" value="'.$companyid.'">

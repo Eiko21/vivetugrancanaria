@@ -2,18 +2,36 @@
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-
-
 main > .container {
   padding: 60px 15px 0;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
 .footer {
-    position:relative;
-    left:0px;
-    bottom:0px;
-    width:100%;
-    background-color: #E4EEF2;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #F7F7F7;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
 }
 
 .footer > .container {
@@ -23,23 +41,6 @@ main > .container {
 
 code {
   font-size: 80%;
-}
-
-.mini-footer {
- text-align:center;
- padding:32px 0
-}
-.mini-footer p {
- margin:0;
- line-height:26px;
- font-size:15px;
- color:#999
-}
-.mini-footer p a {
- color:#5867dd
-}
-.mini-footer p a:hover {
- color:#34bfa3
 }
 
 .fa-search{
