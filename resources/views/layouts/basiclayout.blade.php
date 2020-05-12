@@ -77,41 +77,38 @@
                         </div>
                     </li>
                 @endguest
-        </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Busca alguna actividad" aria-label="Search">
-            <button type="button" class="btn bg-info"><i class="fas fa-search"></i></button>
-          </form>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Busca alguna actividad" aria-label="Search">
+                <button type="button" class="btn bg-info"><i class="fas fa-search"></i></button>
+            </form>
         </div>
-      </nav>
+    </nav>
 
-      <section >
-          @yield('infosection')
-      </section>
+    <section >
+        @yield('infosection')
+    </section>
 
-      <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3">
         <div class="container">
-        {{-- <center> --}}
-        <div class="mini-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="copyright-text">
-                  <p>© 2020
-                    <a href="#">ViveTuGranCanaria</a>. Todos los derechos reservados. Creado por
-                    <a href="#">MdaCompany | Grupo02</a>
-                  </p>
+            <div class="mini-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright-text">
+                                <p>© 2020
+                                    <a href="#">ViveTuGranCanaria</a>. Todos los derechos reservados. Creado por
+                                    <a href="#">MdaCompany | Grupo02</a>
+                                </p>
+                            </div>                
+                            <div class="go_top">
+                                <span class="icon-arrow-up"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-      
-                <div class="go_top">
-                  <span class="icon-arrow-up"></span>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-        {{-- </center> --}}
-        </div>
-      </footer>
+    </footer>
 </body>
 </html>
