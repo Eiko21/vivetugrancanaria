@@ -100,6 +100,7 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
+        
         $activity=Activity::findOrFail($id);
  
         if(!empty($activity->image)){
