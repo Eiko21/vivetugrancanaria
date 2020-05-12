@@ -46,10 +46,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    public function showProfile($id){
         $user=User::findOrFail($id);
         return view ('client.profileClient', compact('user'));
     }
@@ -76,7 +72,23 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::findOrFail($id);
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+            $user->image=$fileNameToStore;
+        }
+
+       $user->name=$request->name;
+       $user->email=$request->email;
+       //contraseña??
+       $user->city=$request->city;
+        
+        $user->save();
+        return redirect(route('profileClient', $id));
     }
 
     /**
@@ -90,7 +102,4 @@ class UserController extends Controller
         //
     }
 
-    public function editProfile(){
-        
-    }
 }

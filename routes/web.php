@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/client/{userid}', 'UserController@showProfile')->name('showProfile');
+Route::get('/client/{userid}', 'UserController@show')->name('show');
 Route::get('/client/{userid}/edit', 'UserController@edit')->name('edit');
 Route::put('/client/{userid}', 'UserController@update')->name('update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
