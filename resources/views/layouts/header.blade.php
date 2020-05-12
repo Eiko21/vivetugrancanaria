@@ -1,14 +1,14 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
-    <a class="navbar-brand" href="#">Vive tu Gran Canaria</a>
+    <a class="navbar-brand" href="/home">Vive tu Gran Canaria</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        @guest
+        @guest        
             <li class="nav-item active">
-                <a class="nav-link" href="#">Actividades</a>
+                <a class="nav-link" href="">Actividades</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -20,9 +20,9 @@
             @endif
         @else
             @if(Auth::user()->role === ('empresa'))
-                            
+            @php($companyid=Auth::user()->id)
             <li class="nav-item active">                                
-                <a class="nav-link" href="#">Listado Actividades</a>
+                <a class="nav-link" href="{{ route('listActivities', ['companyid' => $companyid]) }}">Listado Actividades</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">Listado Usuarios</a>
