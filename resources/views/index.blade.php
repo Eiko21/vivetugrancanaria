@@ -106,5 +106,11 @@
                 @endforeach
 
             </table>
+            <div class="content">
+                <div class="title m-b-md">
+                    ViveTuGranCanaria
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -14,7 +14,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies=User::all()->where('role','empresa');
+        return view('company.index', compact('companies'));
     }
 
     /**
@@ -57,7 +58,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $details=User::findOrFail($id);
+        return view('company.update', compact('details'));
     }
 
     /**
@@ -69,7 +71,20 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+        }
+        $company=User::findOrFail($id);
+        $company->name=$request->input('name');
+        if($request->hasFile('image')) $company->image = $fileNameToStore;
+        $company->description=$request->input('description');
+        $company->contact=$request->input('contact');
+        $company->save();
+        return redirect(route('index'));
     }
 
     /**
