@@ -19,7 +19,7 @@
 <!-- CSS CDN de Bootstrap-->
 <!-- Styles  -->
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
