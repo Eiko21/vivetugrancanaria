@@ -3,17 +3,29 @@
     <div class="container">
         <div class="form_add_user">
             <h2 style="text-align:center;">Modificar Perfil</h2>
+            <div class="py-5 text-center">
+                <h4>Foto de Perfil</h4>
+                    @if($user->image !== null)
+                        <img src="<?php echo asset('img/' . $user->image); ?>" class="rounded-circle d-block mx-auto mb-4" width="200" height="200">
+                    @else
+                        <img alt="User Pic"
+                             src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+                             class="rounded-circle" width="200" height="200">
+                    @endif          
+            </div>
+
             <form method="POST" action="{{ url(route('update', $user->id))  }}" enctype="multipart/form-data">
+                
                 <input type='hidden' name='_method' value='PUT'>
                 @csrf
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 col-md-offset-3">
                         <label for="Nombre"><b>Nombre</b></label>
                         <input type="text" class="form-control" name="name" id="name"
                                value="{{ old('name')??$user->name }}" required>
 
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 col-md-offset-3">
                         <label for="Tipo"><b>Ciudad</b></label>
                         <input type="text" class="form-control" name="city" id="city"
                                value="{{ old('city')??$user->city }}" required>
@@ -26,15 +38,9 @@
                 </div>
 
                 <center>
-                    @if($user->image !== null)
-                        <img src="<?php echo asset('img/' . $user->image); ?>" width="300" height="300">
-                    @else
-                        <img alt="User Pic"
-                             src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-                             class="rounded-circle" width="200" height="200">
-                    @endif
+                    
                     <div class="form-group col-md-4">
-                        <label for="Imagen"><b>Imagen</b></label>
+                        <label for="Imagen"><b>Foto de perfil</b></label>
                         <input type="file" class="form-control" name="image" id="image" data-max-size=80000>
                     </div>
                 </center>
@@ -109,7 +115,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-4">
+                                        <div class="col-md-6 col-md-offset-3">
                                             <button type="submit" class="btn btn-primary">
                                                 Modificar contraseña
                                             </button>
