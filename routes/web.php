@@ -14,12 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('client.activities');
 });
-
-Route::get('/users', 'UserController@index');
-Route::get('/companies', 'CompanyController@index');
-Route::get('/companies/{id}', 'CompanyController@show')->name('show');
 
 Auth::routes();
 
@@ -34,3 +30,5 @@ Route::post('/activities', 'ActivityController@store')->name('storeactivity');
 Route::get('/activities/{activityid}/edit', 'ActivityController@edit')->name('editactivity');
 Route::put('/activities/{activityid}', 'ActivityController@update')->name('updateactivity');
 Route::delete('/activities/{activityid}', 'ActivityController@destroy')->name('deleteactivity');
+
+Route::get('/tickets', 'TicketController@index')->name('indextickets');

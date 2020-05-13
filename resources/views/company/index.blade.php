@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="info-table" style="margin: 4%; ">
+            <table class="info-table" style="margin: 4%;">
                 <thead class="bg-info">
                     <tr>
                         <th>Nombre</th>
