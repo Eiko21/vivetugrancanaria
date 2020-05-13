@@ -46,13 +46,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    public function showProfile($id){
-        $user=User::findOrFail($id);
+       $user=User::findOrFail($id);
         return view ('client.profileClient', compact('user'));
     }
+ 
 
     /**
      * Show the form for editing the specified user.
@@ -64,7 +61,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user=User::findOrFail($id);
-        return view('client.edit', compact('user'));
+        return view('client.editProfileClient', compact('user'));
     }
 
     /**
@@ -76,7 +73,25 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::findOrFail($id);
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+            $activity->image=$fileNameToStore;
+        }
+        $activity->name=$request->name;
+        $activity->type=$request->type;
+        $activity->description=$request->description;
+        $activity->price=$request->price;
+        $activity->capacity=$request->capacity;
+        $activity->start=$request->start;
+        $activity->duration=$request->duration;        
+        $userid=$user->id;
+        $activity->save();
+        return redirect(route('show', $userid));
     }
 
     /**
