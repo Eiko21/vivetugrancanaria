@@ -80,17 +80,14 @@ class UserController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_' .time().'.' .$extension;
             $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
-            $activity->image=$fileNameToStore;
+            $user->image=$fileNameToStore;
         }
-        $activity->name=$request->name;
-        $activity->type=$request->type;
-        $activity->description=$request->description;
-        $activity->price=$request->price;
-        $activity->capacity=$request->capacity;
-        $activity->start=$request->start;
-        $activity->duration=$request->duration;        
+        $user->name=$request->name;
+        $user->city=$request->city;
+        $user->email=$request->email;
+      
         $userid=$user->id;
-        $activity->save();
+        $user->save();
         return redirect(route('show', $userid));
     }
 
