@@ -54,7 +54,7 @@
                                 </td>
                                 @if(!Auth::guest() && Auth::user()->role === ('empresa'))
                                     <td>
-                                        <div id="contenedorBotones">
+                                        {{-- <div id="contenedorBotones"> --}}
                                         <a href="{{  url(route('editactivity', $activity->id))  }}" id="update-activity"class="btn btn-success"><i class="fas fa-edit"></i></a>
                                     </td>
                                     <td>
@@ -63,7 +63,7 @@
                                             @csrf
                                             <button type="submit" id="delete" name="delete-activity"class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                         </form>
-                                        </div>
+                                        {{-- </div> --}}
                                     </td>
                                 @endif
                             </tr>                        

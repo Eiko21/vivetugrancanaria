@@ -15,7 +15,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies=User::all()->where('role','empresa');
-        return view('company.index', compact('companies'));
+        return view('admin.indexempresas', compact('companies'));
     }
 
     /**

@@ -23,7 +23,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
-        <a class="navbar-brand" href="/home">ViveTuGranCanaria</a>
+        <a class="navbar-brand" href="{{ route('indexactivities') }}">ViveTuGranCanaria</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,10 +65,6 @@
                         </li>
                     @endif
                     <li class="nav-item active">
-                        {{-- <div> --}}
-                            {{-- <a id="navbarDropdown" class="nav-link" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a> --}}
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -77,7 +73,6 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                        {{-- </div> --}}
                     </li>
                 @endguest
             </ul>
