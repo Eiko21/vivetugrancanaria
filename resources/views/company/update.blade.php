@@ -1,8 +1,8 @@
 @extends('layouts.basiclayout')
 @section('infosection')
-    <div class="container" style="margin:7%;">
+    <div class="container">
         <div>
-            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:10%;">
+            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:10%; margin-bottom:3%;">
                 <h2>Actualice su información</h2>
             </div>
         </div>
@@ -10,7 +10,7 @@
             <form action="{{ url(route('update', $details->id)) }}" method="POST" enctype="multipart/form-data">
                 <input type='hidden' name='_method' value='PUT'>
                 @csrf
-                <table class="info-table" style="margin: 5.5%;">
+                <table class="info-table" style="margin: 2.5%; margin-left:10%;">
                     <tr>
                         <td><label for="name">Nombre</label></td>
                         <td><input name="name" type="text" value="{{ old('name')??$details->name }}"></td>

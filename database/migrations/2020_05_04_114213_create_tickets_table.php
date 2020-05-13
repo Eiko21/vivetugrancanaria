@@ -15,7 +15,7 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->float('price',3,2);
+            $table->float('price',5,2);
             $table->integer('quantity');
             $table->timestamps();
         });

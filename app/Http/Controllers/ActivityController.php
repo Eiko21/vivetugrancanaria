@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Activity;
+use App\User;
 
 class ActivityController extends Controller
 {
@@ -67,7 +68,13 @@ class ActivityController extends Controller
      */
     public function show($id)
     {
-        //
+        $activity=Activity::findOrFail($id);
+        if($activity->count()>0){
+            foreach($activity as $detail){
+                $activity->companyname = User::findOrFail($activity->companyid);
+            }
+        }
+        return view('client.showactivity', compact('activity'));
     }
 
     /**
@@ -101,6 +108,16 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $activity=Activity::findOrFail($id);
+ 
+        if(!empty($activity->image)){
+            if(file_exists(public_path('/img/'.$activity->image))){
+                unlink(public_path('/img/'.$activity->image));
+            }
+        }
+ 
+        $activity->delete();
+        return redirect(route('indexactivities'));
     }
 }

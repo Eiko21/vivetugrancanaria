@@ -21,7 +21,7 @@ class TicketController extends Controller
         if($tickets->count()>0){
             foreach($tickets as $ticket){
                 $ticket->activity = Activity::findOrFail($ticket->activityid);
-              }    
+            }    
         }       
         return view('client.indextickets', compact('tickets'));
     }

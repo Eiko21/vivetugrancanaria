@@ -1,8 +1,8 @@
 @extends('layouts.basiclayout')
 @section('infosection')
-    <div class="container" style="margin:7%; padding-left:4%;">
+    <div class="container">
         <div>
-            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:10%; margin-bottom: 4%;">
+            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:10%; margin-bottom: 3%;">
                 <h2>Nueva actividad</h2>
             </div>
         </div>

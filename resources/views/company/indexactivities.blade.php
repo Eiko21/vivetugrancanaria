@@ -1,24 +1,26 @@
 @extends('layouts.basiclayout')
 
 @section('infosection')
-    <div class="container" style="margin:7%; padding-left:4%;">                
+    <div class="container">
         <div>
-            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px">
+            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px;  text-aling: center; margin-left: 12%;">
                 <h2>Listado de actividades</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col text-right">
-                <a href="{{  url(route('createactivity'))  }}" id="add-activity" class="btn btn-info">
-                    <i class="fas fa-plus-circle"></i> AÑADIR</a>
+        @if(!Auth::guest() && Auth::user()->role === ('empresa'))
+            <div class="row">
+                <div class="col text-right">
+                    <a href="{{  url(route('createactivity'))  }}" id="add-activity" class="btn btn-info">
+                        <i class="fas fa-plus-circle"></i> AÑADIR</a>
+                </div>
             </div>
-        </div>
+        @endif
         @if($activities->isEmpty())
             <h3 style="margin:15%; padding-top:4.5%; padding-left:6%;">
                 Oh Oh! Aún no tienes actividades Puedes añadirla en el botón 'Añadir actividad'
             </h3> 
         @else        
-            <div class="table-responsive" style="margin-top:4%; padding-top:4%; padding-bottom:8.2%;">
+            <div class="table-responsive" style="margin: 1%; padding-bottom: 1%; margin-left:5%; padding-top: 3%;">
                 <table class="table table-striped table-bordered table-hover">
                     <thead class="bg-info">
                         <tr>
@@ -38,7 +40,10 @@
                     <tbody>
                         @foreach ($activities as $activity)
                             <tr>
-                                <td>{{ $activity->name }}</td>
+                                <td>
+                                    <a href="{{ url(route('showactivity',$activity->id)) }}">
+                                        {{ $activity->name }}</a>
+                                    </td>
                                 <td>{{ $activity->type }}</td>
                                 <td>{{ $activity->description }}</td>
                                 <td>{{ $activity->price }} €</td>

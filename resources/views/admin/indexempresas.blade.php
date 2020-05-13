@@ -1,14 +1,14 @@
 @extends('layouts.basiclayout')
 
 @section('infosection')
-    <div class="container" style="margin:7%;">
+    <div class="container">
         <div>
-            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:10%;">
+            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:10%; margin-bottom:3%;">
                 <h2>Empresas registradas</h2>
             </div>
         </div>
         <div class="table-responsive">
-            <table class="info-table" style="margin: 4%;">
+            <table class="info-table" style="margin-left: 10%;">
                 <thead class="bg-info">
                     <tr>
                         <th>Nombre</th>

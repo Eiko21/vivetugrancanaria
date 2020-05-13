@@ -34,11 +34,11 @@
                         <a class="nav-link active" href="{{ route('indexactivities') }}">Actividades</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                         </li>
                     @endif 
                 @else
@@ -68,7 +68,7 @@
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar sesión') }}
                             </a>    
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -83,7 +83,7 @@
         </div>
     </nav>
 
-    <section>
+    <section style="margin:7.5%; padding-right:7%; padding-top:1%;">
         @yield('infosection')
     </section>
 
