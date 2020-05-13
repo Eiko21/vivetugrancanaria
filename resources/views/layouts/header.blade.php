@@ -40,7 +40,7 @@
                     <a class="nav-link" href="#">Actividades</a>
                 </li>
                 <li class="nav-item active">
-                <a class="nav-link" href="{{ route('showProfile', ['userid' => $userid]) }}">Perfil</a>
+                <a class="nav-link" href="{{ route('show', ['userid' => $userid]) }}">Perfil</a>
                     
                 </li>
             @endif

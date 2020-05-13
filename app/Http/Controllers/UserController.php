@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 class UserController extends Controller
 {
@@ -46,9 +47,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
+
         $user=User::findOrFail($id);
         return view ('client.profileClient', compact('user'));
     }
+ 
 
     /**
      * Show the form for editing the specified user.
@@ -60,7 +63,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user=User::findOrFail($id);
-        return view('client.edit', compact('user'));
+        return view('client.editProfileClient', compact('user'));
     }
 
     /**
@@ -81,14 +84,13 @@ class UserController extends Controller
             $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
             $user->image=$fileNameToStore;
         }
-
-       $user->name=$request->name;
-       $user->email=$request->email;
-       //contraseña??
-       $user->city=$request->city;
+        $user->name=$request->name;
+        $user->city=$request->city;
+        $user->email=$request->email;
         
+        $userid=$user->id;
         $user->save();
-        return redirect(route('profileClient', $id));
+        return redirect(route('show', $userid));
     }
 
     /**
