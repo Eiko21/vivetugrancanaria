@@ -92,6 +92,29 @@ class UserController extends Controller
         $user->save();
         return redirect(route('show', $userid));
     }
+    public function updatePassword(Request $request, $id)
+    {
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            return redirect()->back()->with("error","La contraseña introducida no coincide con su contraseña actual. Inténtelo de nuevo.");
+        }
+ 
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            //Current password and new password are same
+            return redirect()->back()->with("error","Su nueva contraseña no puede ser igual que la actual. Por favor, eliga una diferente.");
+        }
+ 
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:6|confirmed',
+        ]);
+ 
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+ 
+        return redirect()->back()->with("success","Contraseña cambiada con éxito!");
+    }
+
 
     /**
      * Remove the specified user from storage.
