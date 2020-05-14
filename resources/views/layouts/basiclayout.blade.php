@@ -20,6 +20,9 @@
         integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tablestyle.css') }}" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
@@ -47,13 +50,10 @@
                             <li class="nav-item active">                                
                                 <a class="nav-link" href="{{ route('indexactivities') }}">Listado Actividades</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Listado Usuarios</a>
-                            </li>
                     @endif
                     @if(Auth::user()->role === ('administrador'))
                         <li class="nav-item active">                                
-                            <a class="nav-link" href="#">Listado Usuarios</a>
+                            <a class="nav-link" href="{{ route('indexusuarios') }}">Listado Usuarios</a>
                         </li>
                     @endif
                     @if(Auth::user()->role === ('cliente'))

@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="table-responsive" style="margin: 1%; padding-bottom: 1%; margin-left:5%; padding-top: 3%;">
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered">
                 <thead class="bg-info">
                     <tr>
                         <th></th>

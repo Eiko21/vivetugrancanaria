@@ -26,13 +26,15 @@ Route::get('/companies/{companyid}/edit', 'CompanyController@edit')->name('edit'
 Route::put('/companies/{companyid}', 'CompanyController@update')->name('update');
 
 Route::get('/activities', 'ActivityController@index')->name('indexactivities');
-Route::get('/activities/{activityid}', 'ActivityController@show')->name('showactivity');
 Route::get('/activities/create', 'ActivityController@create')->name('createactivity');
+Route::get('/activities/{activityid}', 'ActivityController@show')->name('showactivity');
 Route::post('/activities', 'ActivityController@store')->name('storeactivity');
 Route::get('/activities/{activityid}/edit', 'ActivityController@edit')->name('editactivity');
 Route::put('/activities/{activityid}', 'ActivityController@update')->name('updateactivity');
 Route::delete('/activities/{activityid}', 'ActivityController@destroy')->name('deleteactivity');
 
 Route::get('/tickets', 'TicketController@index')->name('indextickets');
+Route::get('/tickets/create/{activityid}', 'TicketController@create')->name('createticket');
+Route::post('/tickets/{activityid}', 'TicketController@store')->name('storeticket');
 
-Route::get('/users', 'UserController@index');
+Route::get('/users', 'UserController@index')->name('indexusuarios');

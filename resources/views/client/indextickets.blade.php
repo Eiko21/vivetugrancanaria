@@ -20,7 +20,7 @@
                     @foreach ($tickets as $ticket)
                         <tr>
                             <td><b>{{ $ticket->activity->name }}</b></td>
-                            <td><b>{{ $ticket->price }}</b></td>
+                            <td><b>{{ $ticket->price }}€</b></td>
                             <td><b>{{ $ticket->quantity }}</b></td>
                         </tr>
                 </tbody>
