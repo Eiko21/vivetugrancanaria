@@ -1,0 +1,54 @@
+@extends('layouts.basiclayout')
+@section('infosection')
+    <div class="container" style="margin-left:10%;">
+        <div>
+            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-right:9%; margin-bottom: 3%;">
+                <h2>Listado de usuarios registrados</h2>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="info-table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Ciudad</th>
+                    <th>Descripción</th>
+                    <th>Contacto</th>
+                    <th>Foto</th>
+                </tr>
+                @foreach ($users as $user)
+                    @if($user->role !== 'administrador')
+                        <tr>
+                            <td><b>{{ $user->name }}</b></td>
+                            <td><b>{{ $user->email }}</b></td>
+                            <td><b>{{ $user->role }}</b></td>
+                            <td><b>{{ $user->city}}</b></td>
+                            <td>
+                                @if($user->description !== null)
+                                    <b>{{ $user->description}}</b>
+                                @else
+                                    <b>Empresa sin descripción</b>
+                                @endif
+                            </td>
+                            <td>
+                                @if($user->contact !== null)
+                                    <b>{{ $user->contact}}</b>
+                                @else
+                                    <b>Empresa sin contacto</b>
+                                @endif
+                            </td>
+                            <td>
+                                @if($user->image !== null)
+                                    <img src="{{ asset('img/'.$user->image) }}" width="100" height="100" >
+                                @else
+                                    <p><b><i>Usuario sin foto</i></b></p>
+                                @endif
+                            </td>
+                        </tr>
+                    @endif
+                @endforeach
+            </table>
+        </div>
+    </div>
+@endsection

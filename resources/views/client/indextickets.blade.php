@@ -1,14 +1,14 @@
 @extends('layouts.basiclayout')
 @section('infosection')
-<div class="container" style="margin:7%;">
+<div class="container">
     <div>
-        <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:10%;">
+        <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px; padding-left:5%; margin-bottom: 3%;">
             <h2>Tus tickets</h2>
         </div>
     </div>
     <div class="table-responsive">
         @if($tickets->count() > 0)
-            <table class="info-table" style="margin: 4%;">
+            <table class="info-table">
                 <thead class="bg-info">
                     <tr>
                         <th>Nombre de la actividad</th>
@@ -27,7 +27,7 @@
                 @endforeach
             </table>
         @else
-            <h3 style="margin:12.6%; padding-top:4.5%; padding-left:6%;">No tiene ningún ticket</h3> 
+            <h3 style="padding:10.5%;">No tiene ningún ticket</h3> 
         @endif
     </div>
 </div>
