@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Activity;
+use App\User;
 
 class ActivityController extends Controller
 {
@@ -48,6 +49,11 @@ class ActivityController extends Controller
     public function show($id)
     {
         $activity=Activity::findOrFail($id);
+        if($activity->count()>0){
+            foreach($activity as $detail){
+                $activity->companyname = User::findOrFail($activity->companyid);
+            }
+        }
         return view('activitydetails', compact('activity'));
     }
 
