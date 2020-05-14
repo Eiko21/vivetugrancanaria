@@ -34,3 +34,7 @@ Route::put('/activities/{activityid}', 'ActivityController@update')->name('updat
 Route::delete('/activities/{activityid}', 'ActivityController@destroy')->name('deleteactivity');
 
 Route::get('/tickets', 'TicketController@index')->name('indextickets');
+Route::get('/tickets/create/{activityid}', 'TicketController@create')->name('createticket');
+Route::post('/tickets/{activityid}', 'TicketController@store')->name('storeticket');
+
+Route::get('/users', 'UserController@index')->name('indexusuarios');

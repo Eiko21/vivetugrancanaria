@@ -1,8 +1,13 @@
 @extends('layouts.basiclayout')
 
 @section('infosection')
-<div class="container" style="margin:5%; padding-top:1%; padding-left:15%;">
-    <div class="row justify-content-center">
+<div class="container">
+    <div>
+        <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px;  text-aling: center; margin-left: 12%; margin-bottom: 3%;">
+            <h2>Registrate en nuesta página</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="margin-left: 10%;">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Registro') }}</div>

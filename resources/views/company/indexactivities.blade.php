@@ -43,7 +43,7 @@
                                 <td>
                                     <a href="{{ url(route('showactivity',$activity->id)) }}">
                                         {{ $activity->name }}</a>
-                                    </td>
+                                </td>
                                 <td>{{ $activity->type }}</td>
                                 <td>{{ $activity->description }}</td>
                                 <td>{{ $activity->price }} €</td>
@@ -59,8 +59,7 @@
                                 </td>
                                 @if(!Auth::guest() && Auth::user()->role === ('empresa'))
                                     <td>
-                                        {{-- <div id="contenedorBotones"> --}}
-                                        <a href="{{  url(route('editactivity', $activity->id))  }}" id="update-activity"class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                        <a href="{{  url(route('editactivity', $activity->id))  }}" id="update-activity" class="btn btn-success"><i class="fas fa-edit"></i></a>
                                     </td>
                                     <td>
                                         <form class="form-delete form-buttons" action="{{  url(route('deleteactivity', $activity->id))  }}" method="POST">
@@ -68,11 +67,15 @@
                                             @csrf
                                             <button type="submit" id="delete" name="delete-activity"class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                         </form>
-                                        {{-- </div> --}}
                                     </td>
                                 @endif
                             </tr>                        
                         @endforeach
+                        <script>
+                            $(".form-delete").on("submit", function(){
+                                return confirm("¿Está seguro de que desea eliminar esta actividad?");
+                            });
+                        </script> 
                     </tbody>
                 </table>
             </div>
