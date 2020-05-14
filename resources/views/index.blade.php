@@ -1,40 +1,29 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-                
-        <div>
-            <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px"><h2>Listado de actividades</h2></div>
-        </div>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
-                <thead class="bg-info">
-                    <tr>
-                        <th>Foto</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Fecha</th>  
-                    </tr>
-
-                </thead>
-                <tbody>
-                    @foreach ($activities as $activity)
-                        <tr>
-							<td>
-                                @if($activity->image !== null)
-                                    <img src="{{ asset('img/'.$activity->image) }}" width="100" height="100" >
-                                @else
-                                    <p>Sin imagen</p>
-                                @endif
-                            </td>
-                            <td><a href="{{action('ActivityController@show', ['id' => $activity->id])}}">{{$activity->name}}</a></td>                          
-                            <td>{{ $activity->price }}</td>
-                            <td>{{ $activity->start }}</td>
-                        </tr>                        
-                    @endforeach
-                </tbody>
-                </table>
+    @foreach ($activities as $activity)
+        <br>
+        <div class="card">
+            <div class="card-header bg-info"><h4 style="color:white;"><i class="fas fa-map-marker-alt"></i> <a href="{{ action('ActivityController@show, activity->$id') }}">{{$activity->name}}</a></h4></div>
+            <div class="card-body">
+                <div class="col-md-4 4">
+                    @if($activity->image !== null)
+                        <img src="<?php echo asset('img/' . $activity->image); ?>" width="100" height="100">
+                    @endif
                 </div>
+                <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                    <hr>
+                    <ul style="list-style-type:none;" class="container details">
+                        <li><p><span class="glyphicon glyphicon-user one"
+                                    style="width:50px;"></span><h4>{{ $activity->description }}</h4></p></li>
+                        <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>
+                                <i class="fas fa-calendar-week"></i> Fecha: {{ $activity->start }}</p></li>
+                    </ul>
+                    <hr>
+                    <div class="col-sm-5 col-xs-6 tital "><span class="glyphicon glyphicon-envelope one" style="width:50px;"><i class="fas fa-euro-sign"></i> {{ $activity->price }}</span></div>
 
-        </div> 
-        
-    @endsection
+                </div>
+            </div>
+            <br>
+
+    @endforeach
+@endsection
