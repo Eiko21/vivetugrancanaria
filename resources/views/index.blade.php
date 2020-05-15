@@ -3,7 +3,7 @@
     @foreach ($activities as $activity)
         <br>
         <div class="card">
-            <div class="card-header bg-info"><i class="fas fa-map-marker-alt"></i><h4 style="color:white;"> <a href="{{action('ActivityController@show', ['id' => $activity->id])}}">{{$activity->name}}</a></h4></div>
+            <div class="card-header bg-info"><h4 style="color:white;"><i class="fas fa-map-marker-alt"></i> <a style="color:white;" href="{{action('ActivityController@show', ['id' => $activity->id])}}">{{$activity->name}}</a></h4></div>
             <div class="card-body">
                 <div class="col-md-4 4">
                     @if($activity->image !== null)
