@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 use App\Ticket;
 use App\Activity;
 
@@ -32,10 +31,12 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($activityid)
+    public function create(Request $request, $activityid)
     {
         $activity=Activity::findOrFail($activityid);
-        return view('client.storeticket', compact('activity'));
+        $quantity=$request->quantity;
+        $total=($activity->price)*$quantity;
+        return view('client.storeticket', compact('activity','quantity','total'));
     }
 
     /**
@@ -47,8 +48,8 @@ class TicketController extends Controller
     public function store(Request $request, $activityid)
     {
         $ticket = new Ticket;
-        $ticket->price=(float)$request->price;
-        $ticket->quantity=1;
+        $ticket->price=(float)$request->total;
+        $ticket->quantity=$request->quantity;
         $ticket->clientid=Auth::user()->id;
         $ticket->activityid=$activityid;
 
