@@ -20,9 +20,9 @@
             @endif
         @else
             @if(Auth::user()->role === ('empresa'))
-                            
+            @php($companyid=Auth::user()->id)
             <li class="nav-item active">                                
-                <a class="nav-link" href="#">Listado Actividades</a>
+                <a class="nav-link" href="{{ route('listActivities', ['companyid' => $companyid] ) }}">Listado Actividades</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">Listado Usuarios</a>
