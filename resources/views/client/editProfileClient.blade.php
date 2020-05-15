@@ -81,7 +81,7 @@
 
                                         <div class="col-md-8">
                                             <input id="current-password" type="password" class="form-control"
-                                                   name="current-password" placeholder="Contraseña nueva" required>
+                                                   name="current-password" placeholder="Contraseña actual" required>
 
                                             @if ($errors->has('current-password'))
                                                 <span class="help-block">
