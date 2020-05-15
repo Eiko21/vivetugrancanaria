@@ -28,11 +28,15 @@
                     </tr>
                     <tr>
                         <td><label for="quantity">Número de tickets</label></td>
-                        <td><input type="text" value="1" size="5" readonly></td>
+                        <td><input type="text" name="quantity" value="{{ $quantity }}" size="5" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="quantity">Precio/ticket</label></td>
+                        <td><input type="text" name="price" value="{{ $activity->price }}" size="5" readonly></td>
                     </tr>
                     <tr>
                         <td><label for="price">Total a pagar (€)</label></td>
-                        <td><input type="text" name="price" value="{{ $activity->price }}" size="5" readonly></td>
+                        <td><input type="text" name="total" value="{{ $total }}" size="5" readonly></td>
                     </tr>
                 </table>
                 <div style="text-align: center;">
