@@ -28,7 +28,7 @@
                 <a class="nav-link" href="#">Listado Usuarios</a>
             </li>
             @endif
-            @if(Auth::user()->role === ('administrador'))
+            @if(Auth::user()->role === ('admin'))
 
             <li class="nav-item active">                                
                 <a class="nav-link" href="#">Listado Usuarios</a>
