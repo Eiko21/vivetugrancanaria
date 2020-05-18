@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/companies', 'CompanyController@index')->name('index');
+// Route::get('/companies', 'CompanyController@index')->name('index');
 Route::get('/companies/{companyid}', 'CompanyController@show')->name('showcompany');
 Route::get('/companies/{companyid}/edit', 'CompanyController@edit')->name('edit');
 Route::put('/companies/{companyid}', 'CompanyController@update')->name('update');

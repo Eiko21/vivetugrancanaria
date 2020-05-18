@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class CompanyController extends Controller
@@ -14,8 +15,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies=User::all()->where('role','empresa');
-        return view('admin.indexempresas', compact('companies'));
+        //
     }
 
     /**
@@ -85,7 +85,7 @@ class CompanyController extends Controller
         $company->description=$request->input('description');
         $company->contact=$request->input('contact');
         $company->save();
-        return redirect(route('index'));
+        return redirect(route('showcompany',Auth::user()->id));
     }
 
     /**

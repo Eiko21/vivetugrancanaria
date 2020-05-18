@@ -15,6 +15,7 @@
                         <th>Descripción</th>
                         <th>Teléfono de contacto</th>
                         <th>Correo electrónico</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,12 @@
                         <td>{{ $company->description }}</td>
                         <td>{{ $company->contact }}</td>
                         <td>{{ $company->email }}</td>
+                        <td>
+                            <form class="form-buttons" action="{{  url(route('edit', $company->id))  }}" method="GET">
+                                @csrf
+                                <input class="botonListado btn btn-primary"  id="update" type="submit" name="update-company" value="Actualizar">
+                            </form>
+                        </td>
                     </tr>                        
                 </tbody>
             </table>

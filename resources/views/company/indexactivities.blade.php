@@ -5,7 +5,7 @@
         @if(!Auth::guest() && Auth::user()->role === ('empresa'))
             <div>
                 <div id="list-title" class="text-center" style="color:#008CBA; font-size:40px;  text-aling: center; margin-left: 12%;">
-                    <h2>Listado de actividades</h2>
+                    <h2>Tus actividades</h2>
                 </div>
             </div>
         @else

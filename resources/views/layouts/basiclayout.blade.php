@@ -46,9 +46,11 @@
                     @endif 
                 @else
                     @if(Auth::user()->role === ('empresa'))
-                        @php($companyid=Auth::user()->id)
                             <li class="nav-item active">                                
-                                <a class="nav-link" href="{{ route('indexactivities') }}">Listado Actividades</a>
+                                <a class="nav-link" href="{{ route('indexactivities') }}">Tus actividades</a>
+                            </li>
+                            <li class="nav-item active">                                
+                                <a class="nav-link" href="{{ route('showcompany',Auth::user()->id) }}">Perfil</a>
                             </li>
                     @endif
                     @if(Auth::user()->role === ('administrador'))
