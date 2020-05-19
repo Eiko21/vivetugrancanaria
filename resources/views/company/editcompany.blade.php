@@ -5,8 +5,8 @@
             <h2 style="text-align:center;">Actualización de su perfil</h2>
             <div class="py-5 text-center">
                 <h4>Foto de Perfil</h4>
-                    @if($user->image !== null)
-                        <img src="<?php echo asset('img/' . $user->image); ?>" class="rounded-circle d-block mx-auto mb-4" 
+                    @if($details->image !== null)
+                        <img src="<?php echo asset('img/' . $details->image); ?>" class="rounded-circle d-block mx-auto mb-4" 
                             width="200" height="200">
                     @else
                         <img alt="User Pic"
@@ -14,25 +14,31 @@
                             class="rounded-circle" width="200" height="200">
                     @endif          
             </div>
-            <form method="POST" action="{{ url(route('updateclient', $user->id))  }}" enctype="multipart/form-data">                
+            <form action="{{  url(route('updatecompany', $details->id))  }}" method="POST" enctype="multipart/form-data">                
                 <input type='hidden' name='_method' value='PUT'>
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6 col-md-offset-3">
                         <label for="Nombre"><b>Nombre</b></label>
                         <input type="text" class="form-control" name="name" id="name"
-                            value="{{ old('name')??$user->name }}" required>
+                            value="{{ old('name')??$details->name }}">
                     </div>
                     <div class="form-group col-md-6 col-md-offset-3">
-                        <label for="Tipo"><b>Ciudad</b></label>
-                        <input type="text" class="form-control" name="city" id="city"
-                            value="{{ old('city')??$user->city }}" required>
+                        <label for="contact"><b>Teléfono de contacto</b></label>
+                        <input type="text" class="form-control" name="contact" id="contact"
+                            value="{{ old('contact')??$details->contact }}">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="Precio"><b>E-mail</b></label>
-                    <input type="email" class="form-control" name="email" id="email"
-                        value="{{ old('email')??$user->email }}" min="0" step="any" required>
+                    <div class="form-group col-md-6 col-md-offset-3">
+                        <label for="description"><b>Descripción</b></label>
+                        <textarea type="text" class="form-control" name="description" id="description"
+                            value="{{ old('description')??$details->description }}" >
+                        </textarea>
+                    </div>
+                    <div class="form-group col-md-6 col-md-offset-3">
+                        <label for="email"><b>Correo electrónico</b></label>
+                        <input type="email" class="form-control" name="email" id="email"
+                            value="{{ old('email')??$details->email }}" min="0" step="any">
+                    </div>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="Imagen"><b>Foto de perfil</b></label>
@@ -61,7 +67,7 @@
                                 @if (session('success'))
                                     <div class="alert alert-success">{{ session('success') }}</div>
                                 @endif
-                                <form class="form-horizontal" method="POST" action="{{ route('updatePassword', $user->id) }}">
+                                <form class="form-horizontal" method="POST" action="{{ route('updateCompanyPassword', $details->id) }}">
                                     <input type='hidden' name='_method' value='PUT'>
                                     @csrf
                                     <div class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">

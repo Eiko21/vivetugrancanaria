@@ -21,8 +21,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/companies/{companyid}', 'CompanyController@show')->name('showcompany');
-Route::get('/companies/{companyid}/edit', 'CompanyController@edit')->name('edit');
-Route::put('/companies/{companyid}', 'CompanyController@update')->name('update');
+Route::get('/companies/{companyid}/edit', 'CompanyController@edit')->name('editcompany');
+Route::put('/companies/{companyid}', 'CompanyController@update')->name('updatecompany');
+Route::put('/company/{companyid}', 'CompanyController@updatePassword')->name('updateCompanyPassword');
 
 Route::get('/activities', 'ActivityController@index')->name('indexactivities');
 Route::get('/activities/create', 'ActivityController@create')->name('createactivity');
