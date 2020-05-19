@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class UserController extends Controller
@@ -47,7 +49,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=User::findOrFail($id);
+        return view ('client.showclient', compact('user'));
     }
 
     /**
@@ -58,7 +61,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::findOrFail($id);
+        return view ('client.editclient', compact('user'));
     }
 
     /**
@@ -70,7 +74,42 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::findOrFail($id);
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+            $user->image=$fileNameToStore;
+        }
+        $user->name=$request->name;
+        $user->city=$request->city;
+        $user->email=$request->email;        
+        // $userid=$user->id;
+        $user->save();
+        return redirect(route('showclient',Auth::user()->id));
+    }
+    public function updatePassword(Request $request, $id)
+    {
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            return redirect()->back()->with("error","La contraseña introducida no coincide con su contraseña actual. Inténtelo de nuevo.");
+        }
+ 
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            return redirect()->back()->with("error","Su nueva contraseña no puede ser igual que la actual. Por favor, eliga una diferente.");
+        }
+ 
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:8|confirmed',
+        ]);
+ 
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+ 
+        return redirect()->back()->with("success","Contraseña cambiada con éxito");
     }
 
     /**

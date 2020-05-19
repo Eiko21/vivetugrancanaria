@@ -65,6 +65,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('indextickets') }}">Tickets</a>
                         </li>
+                        <li class="nav-item active">                                
+                            <a class="nav-link" href="{{ route('showclient',Auth::user()->id) }}">Perfil</a>
+                        </li>
                     @endif
                     <li class="nav-item active">
                             <a class="nav-link" href="{{ route('logout') }}"
