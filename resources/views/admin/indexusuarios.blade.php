@@ -16,6 +16,7 @@
                     <th>Descripción</th>
                     <th>Contacto</th>
                     <th>Foto</th>
+                    <th></th>
                 </tr>
                 @foreach ($users as $user)
                     @if($user->role !== 'administrador')
@@ -55,13 +56,13 @@
                                 </form>
                             </td>
                         </tr>
-                        <script>
-                            $(".form-delete-admin").on("submit", function(){
-                                return confirm("¿Está seguro de que desea eliminar este usuario?");
-                            });
-                        </script>
                     @endif
                 @endforeach
+                <script>
+                    $(".form-delete-admin").on("submit", function(){
+                        return confirm("¿Está seguro de que desea eliminar este usuario?");
+                    });
+                </script>
             </table>
         </div>
     </div>
