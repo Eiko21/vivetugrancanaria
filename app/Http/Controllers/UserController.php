@@ -85,8 +85,7 @@ class UserController extends Controller
         }
         $user->name=$request->name;
         $user->city=$request->city;
-        $user->email=$request->email;        
-        // $userid=$user->id;
+        $user->email=$request->email;
         $user->save();
         return redirect(route('showclient',Auth::user()->id));
     }

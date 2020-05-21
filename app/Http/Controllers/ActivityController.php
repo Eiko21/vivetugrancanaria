@@ -127,8 +127,7 @@ class ActivityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        
+    {        
         $activity=Activity::findOrFail($id);
  
         if(!empty($activity->image)){
