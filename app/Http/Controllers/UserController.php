@@ -120,6 +120,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::findOrFail($id);
+        if(!empty($user->image)){
+            if(file_exists(public_path('/img/'.$user->image))){
+                unlink(public_path('/img/'.$user->image));
+            }
+        }
+ 
+        $user->delete();
+        if(Auth::user()->role == ('administrador')) return redirect(route('indexusuarios'));
+        else if(Auth::user()->role == ('cliente')) return redirect(route('indexactivities'));
     }
 }
