@@ -45,7 +45,21 @@
                                     <p><b><i>Usuario sin foto</i></b></p>
                                 @endif
                             </td>
+                            <td>
+                                <form class="form-delete-admin" action="{{  url(route('deleteclient', $user->id))  }}" method="POST">
+                                    <input type='hidden' name='_method' value='DELETE'>
+                                    @csrf
+                                    <button type="submit" id="delete" name="delete-activity"class="btn btn-danger">
+                                        Eliminar usuario<i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
+                        <script>
+                            $(".form-delete-admin").on("submit", function(){
+                                return confirm("¿Está seguro de que desea eliminar este usuario?");
+                            });
+                        </script>
                     @endif
                 @endforeach
             </table>
