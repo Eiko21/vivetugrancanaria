@@ -36,8 +36,8 @@
                             <td>{{ $activity->type }}</td>
                             <td>{{ $activity->capacity }}</td>
                             <td>{{ $activity->duration }}</td>
-                            <td>{{ $activity->start }}</td>
                             <td>{{ $activity->price }}</td>
+                            <td>{{ $activity->start }}</td>
                             <td>
                                 <a href="{{ url(route('showcompany',$activity->companyid)) }}">
                                     {{ $activity->companyname->name }}</a>

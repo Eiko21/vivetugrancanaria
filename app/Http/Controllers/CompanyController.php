@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class CompanyController extends Controller
@@ -14,8 +16,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies=User::all()->where('role','empresa');
-        return view('admin.indexempresas', compact('companies'));
+        //
     }
 
     /**
@@ -60,7 +61,7 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $details=User::findOrFail($id);
-        return view('company.update', compact('details'));
+        return view('company.editcompany', compact('details'));
     }
 
     /**
@@ -85,7 +86,28 @@ class CompanyController extends Controller
         $company->description=$request->input('description');
         $company->contact=$request->input('contact');
         $company->save();
-        return redirect(route('index'));
+        return redirect(route('showcompany',Auth::user()->id));
+    }
+    public function updatePassword(Request $request, $id)
+    {
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            return redirect()->back()->with("error","La contraseña introducida no coincide con su contraseña actual. Inténtelo de nuevo.");
+        }
+ 
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            return redirect()->back()->with("error","Su nueva contraseña no puede ser igual que la actual. Por favor, eliga una diferente.");
+        }
+ 
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:8|confirmed',
+        ]);
+ 
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+ 
+        return redirect()->back()->with("success","Contraseña cambiada con éxito");
     }
 
     /**

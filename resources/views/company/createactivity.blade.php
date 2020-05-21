@@ -46,7 +46,7 @@
                         <input type="file" class="form-control" name="image" id="image">
                     </div>
                 </div>
-                <input type="hidden" name="companyid" value="{{ Auth::user()->id }}">
+                {{-- <input type="hidden" name="companyid" value="{{  }}"> --}}
                 <button type="submit" name="store-activity" class="btn btn-primary">Añadir</button>
             </form>
         </div>

@@ -54,7 +54,7 @@ class ActivityController extends Controller
         $activity->capacity=$request->capacity;
         $activity->start=$request->start;
         $activity->duration=$request->duration;
-        $activity->companyid=$request->companyid;
+        $activity->companyid=Auth::user()->id;
 
         $activity->save();
         return redirect(route('indexactivities'));
@@ -85,7 +85,8 @@ class ActivityController extends Controller
      */
     public function edit($id)
     {
-        //
+        $activity=Activity::findOrFail($id);
+        return view('company.editactivity', compact('activity'));
     }
 
     /**
@@ -97,7 +98,26 @@ class ActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $activity=Activity::findOrFail($id);
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+            $activity->image=$fileNameToStore;
+        }
+        $activity->name=$request->name;
+        $activity->type=$request->type;
+        $activity->description=$request->description;
+        $activity->price=$request->price;
+        $activity->capacity=$request->capacity;
+        $activity->start=$request->start;
+        $activity->duration=$request->duration;        
+        // $companyid=$activity->companyid;
+        $activity->companyid=Auth::user()->id;
+        $activity->save();
+        return redirect(route('indexactivities'));
     }
 
     /**
