@@ -38,7 +38,7 @@
                         <div class="card">
                             <div class="card-header bg-info">
                                 <h4 style="display: inline;"><i class="fas fa-map-marker-alt"></i> 
-                                    <a href="{{ url(route('showactivity',$activity->id)) }}" style="color:white;">
+                                    <a class="activity-name" href="{{ url(route('showactivity',$activity->id)) }}" style="color:white;">
                                         {{$activity->name}}
                                     </a>
                                 </h4>
@@ -73,6 +73,7 @@
                                             <i class="fas fa-euro-sign"></i> {{ $activity->price }}</span>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     <br>
                 @endforeach

@@ -35,13 +35,13 @@
                                 <a href="{{  url(route('editclient', $user->id))  }}" id="update-profile-client" class="btn btn-success">
                                     Editar perfil <i class="fas fa-edit"></i>
                                 </a><br><br>
-                                <!--<form class="form-delete form-buttons" method="POST"> 
+                                <form class="form-delete form-buttons" action="{{  url(route('deleteclient', $user->id))  }}" method="POST"> 
                                     <input type='hidden' name='_method' value='DELETE'>
-                                    @csrf-->
-                                    <button type="submit" id="delete" name="delete-activity"class="btn btn-danger">Eliminar cuenta
-                                        <i class="fas fa-trash"></i>
+                                    @csrf
+                                    <button type="submit" id="delete" name="delete-activity"class="btn btn-danger">
+                                        Eliminar cuenta<i class="fas fa-trash"></i>
                                     </button>
-                                <!--</form> -->
+                                </form>
                             </div>
                         </div>
                     </div>

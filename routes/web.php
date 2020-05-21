@@ -42,4 +42,4 @@ Route::get('/users/{userid}', 'UserController@show')->name('showclient');
 Route::get('/users/{userid}/edit', 'UserController@edit')->name('editclient');
 Route::put('/users/{userid}', 'UserController@update')->name('updateclient');
 Route::put('/client/{userid}', 'UserController@updatePassword')->name('updatePassword');
-// Route::delete('/users/{userid}', 'UserController@destroy')->name('deleteclient');
+Route::delete('/users/{userid}', 'UserController@destroy')->name('deleteclient');
