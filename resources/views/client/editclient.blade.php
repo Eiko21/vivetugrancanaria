@@ -45,6 +45,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                        <button type="submit" name="detele-account" class="btn btn-danger">Eliminar cuenta</button>
+                        </div>
+                    </div>
+                </div>
+                
             </form>
             <br>
             <hr>
