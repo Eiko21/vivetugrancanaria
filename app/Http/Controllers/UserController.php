@@ -125,9 +125,10 @@ class UserController extends Controller
                 unlink(public_path('/img/'.$user->image));
             }
         }
- 
+        $rol=$user->rol;
         $user->delete();
-        if(Auth::user()->role == ('administrador')) return redirect(route('indexusuarios'));
-        else if(Auth::user()->role == ('cliente')) return redirect(route('indexactivities'));
+        if($rol == ('administrador')) return redirect(route('indexusuarios'));
+        else if($rol == ('cliente')) return redirect(route('indexactivities'));
+        
     }
 }

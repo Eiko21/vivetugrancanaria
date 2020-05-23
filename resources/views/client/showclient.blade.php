@@ -49,4 +49,9 @@
             </div>
         </div>
     </div>
+    <script>
+        $(".form-delete-admin").on("submit", function(){
+            return confirm("Si borra su cuenta perderá el acceso a sus tickets. ¿Está seguro que desea eliminar su cuenta?");
+        });
+     </script>
 @endsection
