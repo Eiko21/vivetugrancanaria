@@ -62,7 +62,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user=User::findOrFail($id);
-        return view ('client.editclient', compact('user'));
+        return view('client.editclient', compact('user'));
     }
 
     /**
@@ -117,7 +117,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyAccount($id)
     {
         $user=User::findOrFail($id);
         if(!empty($user->image)){
@@ -125,10 +125,8 @@ class UserController extends Controller
                 unlink(public_path('/img/'.$user->image));
             }
         }
-        $rol=$user->rol;
         $user->delete();
-        if($rol == ('administrador')) return redirect(route('indexusuarios'));
-        else if($rol == ('cliente')) return redirect(route('indexactivities'));
+         return redirect(route('indexactivities'));
         
     }
 }

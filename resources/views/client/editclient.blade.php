@@ -14,7 +14,7 @@
                             class="rounded-circle" width="200" height="200">
                     @endif          
             </div>
-            <form method="POST" action="{{ url(route('updateclient', $user->id))  }}" enctype="multipart/form-data">                
+            <form method="POST" action="{{ url(route('update', $user->id))  }}" enctype="multipart/form-data">               
                 <input type='hidden' name='_method' value='PUT'>
                 @csrf
                 <div class="form-row">
