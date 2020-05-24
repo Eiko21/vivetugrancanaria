@@ -18,8 +18,10 @@
                             <th>Precio</th>
                             <th>Fecha</th> 
                             <th>Empresa organizadora</th>
-                            <th>Número de tickets</th>
-                            <th></th>
+                            @if(!Auth::guest() && Auth::user()->role === ('cliente'))
+                                <th>Número de tickets</th>
+                                <th></th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>    
@@ -42,10 +44,12 @@
                                 <a href="{{ url(route('showcompany',$activity->companyid)) }}">
                                     {{ $activity->companyname->name }}</a>
                             </td>   
-                            <td><input type="text" name="quantity" value="1" size="5"></td>
-                            <td>
-                                <input type="submit" name="buyticket" value="Comprar ticket" class="btn btn-success">
-                            </td>
+                            @if(!Auth::guest() && Auth::user()->role === ('cliente'))
+                                <td><input type="text" name="quantity" value="1" size="5"></td>
+                                <td>
+                                    <input type="submit" name="buyticket" value="Comprar ticket" class="btn btn-success">
+                                </td>
+                            @endif
                         </tr>              
                     </tbody>
                 </table>
