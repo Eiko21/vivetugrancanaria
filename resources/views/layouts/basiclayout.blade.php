@@ -50,6 +50,7 @@
                     @endif 
                 @else
                     @if(Auth::user()->role === ('empresa'))
+                     
                             <li class="nav-item active">                                
                                 <a class="nav-link" href="{{ route('indexactivities') }}">Tus actividades</a>
                             </li>
@@ -63,6 +64,7 @@
                         </li>
                     @endif
                     @if(Auth::user()->role === ('cliente'))
+                    @php($userid=Auth::user()->id)
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('indexactivities') }}">Actividades</a>
                         </li>
@@ -70,7 +72,7 @@
                             <a class="nav-link" href="{{ route('indextickets') }}">Tickets</a>
                         </li>
                         <li class="nav-item active">                                
-                            <a class="nav-link" href="{{ route('showclient',Auth::user()->id) }}">Perfil</a>
+                            <a class="nav-link" href="{{ route('showclient',['userid' => $userid]) }}">Perfil</a>
                         </li>
                     @endif
                     <li class="nav-item active">
