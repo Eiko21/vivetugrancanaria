@@ -130,4 +130,15 @@ class UserController extends Controller
         if($rol == ('administrador')) return redirect(route('indexusuarios'));
         else if($rol == ('cliente')) return redirect(route('indexactivities'));
     }
+
+    public function destroyAccount($id){
+    $user=User::findOrFail($id);
+        if(!empty($user->image)){
+            if(file_exists(public_path('/img/'.$user->image))){
+                unlink(public_path('/img/'.$user->image));
+            }
+        }
+        $user->delete();
+        return redirect(route('indexactivities'));
+    }
 }
