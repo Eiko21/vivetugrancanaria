@@ -117,7 +117,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyAccount($id)
+    public function destroy($id)
     {
         $user=User::findOrFail($id);
         if(!empty($user->image)){
@@ -125,8 +125,9 @@ class UserController extends Controller
                 unlink(public_path('/img/'.$user->image));
             }
         }
+        $rol=$user->rol;
         $user->delete();
-         return redirect(route('indexactivities'));
-        
+        if($rol == ('administrador')) return redirect(route('indexusuarios'));
+        else if($rol == ('cliente')) return redirect(route('indexactivities'));
     }
 }

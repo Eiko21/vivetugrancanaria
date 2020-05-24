@@ -39,7 +39,7 @@ Route::post('/tickets/{activityid}', 'TicketController@store')->name('storeticke
 
 Route::get('/users', 'UserController@index')->name('indexusuarios');
 Route::get('/users/{userid}', 'UserController@show')->name('showclient');
-Route::get('/users/{userid}/edit', 'UserController@edit')->name('edit')->name('client.editclient');
-Route::put('/users/{userid}', 'UserController@update')->name('update');
-Route::put('/users/{userid}', 'UserController@updatePassword')->name('updatePassword');
-Route::delete('/users/{userid}/delete', 'UserController@destroyAccount')->name('deleteAccount');
+Route::get('/users/{userid}/edit', 'UserController@edit')->name('editclient');
+Route::put('/users/{userid}', 'UserController@update')->name('updateclient');
+Route::post('/users/{userid}', 'UserController@updatePassword')->name('updatePassword');
+Route::delete('/users/{userid}', 'UserController@destroy')->name('deleteclient');

@@ -32,10 +32,8 @@
                             <div class="col-sm-5 col-xs-6 tital">Población: {{ $user->city }}</div>
                             <br><br><br>
                             <div class="col-sm-5 col-xs-6 tital">
-                                <a href="{{  url(route('edit', $user->id))  }}" id="update-profile-client" class="btn btn-success">
-                                    Editar perfil <i class="fas fa-edit"></i>
-                                </a><br><br>
-                                <form class="form-delete form-buttons" action="{{  url(route('deleteAccount', $user->id))  }}" method="POST"> 
+                                 <a href="{{  url(route('editclient', $user->id))  }}" id="update-profile-client" class="btn btn-success">Editar perfil <i class="fas fa-edit"></i></a><br><br>
+                                <form class="form-delete form-buttons" action="{{  url(route('deleteclient', $user->id))  }}" method="POST"> 
                                     <input type='hidden' name='_method' value='DELETE'>
                                     @csrf
                                     <button type="submit" id="delete" name="delete-activity"class="btn btn-danger">
