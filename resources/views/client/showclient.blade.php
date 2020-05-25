@@ -32,33 +32,14 @@
                             <div class="col-sm-5 col-xs-6 tital">Población: {{ $user->city }}</div>
                             <br><br><br>
                             <div class="col-sm-5 col-xs-6 tital">
-                                <a href="{{  url(route('editclient', $user->id))  }}" id="update-profile-client" class="btn btn-success">Editar perfil <i class="fas fa-edit"></i></a><br><br>
+                                 <a href="{{  url(route('editclient', $user->id))  }}" id="update-profile-client" class="btn btn-success">Editar perfil <i class="fas fa-edit"></i></a><br><br>
                                 <form class="form-delete form-buttons" action="{{  url(route('deleteAccount', $user->id))  }}" method="POST"> 
-                                <input type='hidden' name='_method' value='DELETE'>
+                                    <input type='hidden' name='_method' value='DELETE'>
                                     @csrf
-                                    <a href="#ventana1" class="btn btn-danger" data-toggle="modal" >Eliminar cuenta<i class="fas fa-trash"></i></a>
+                                    <button type="submit" id="delete" name="delete-activity"class="btn btn-danger">
+                                        Eliminar cuenta<i class="fas fa-trash"></i>
+                                    </button>
                                 </form>
-                                <div class="modal fade" id="ventana1">
-                                    <div class="modal-dialog">
-                                        <div class="model-content">
-
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="model" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title">Eliminar cuenta</h4>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <p>Si borra su cuenta perderá el acceso a sus tickets.</p>
-                                                <p>¿Está seguro que desea eliminar su cuenta?</p>
-                                            </div>
-
-                                            <div class="model-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-danger" >Eliminar cuenta</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
