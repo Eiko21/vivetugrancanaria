@@ -33,8 +33,11 @@
                             <br><br><br>
                             <div class="col-sm-5 col-xs-6 tital">
                                 <a href="{{  url(route('editclient', $user->id))  }}" id="update-profile-client" class="btn btn-success">Editar perfil <i class="fas fa-edit"></i></a><br><br>
-
-                                <a href="#ventana1" class="btn btn-danger" data-toggle="modal" >Eliminar cuenta</a>
+                                <form class="form-delete form-buttons" action="{{  url(route('deleteAccount', $user->id))  }}" method="POST"> 
+                                <input type='hidden' name='_method' value='DELETE'>
+                                    @csrf
+                                    <a href="#ventana1" class="btn btn-danger" data-toggle="modal" >Eliminar cuenta<i class="fas fa-trash"></i></a>
+                                </form>
                                 <div class="modal fade" id="ventana1">
                                     <div class="modal-dialog">
                                         <div class="model-content">
