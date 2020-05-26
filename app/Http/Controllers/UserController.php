@@ -57,7 +57,7 @@ class UserController extends Controller
             $user->contact=$request->contact;
         }
         $user->save();
-        return redirect(route('admin.indexusuarios'));
+        return redirect(route('indexusuarios'));
     }
 
     /**

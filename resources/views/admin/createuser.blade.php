@@ -26,16 +26,11 @@
                 </div>
                 <div class="form-group">
                     <label for="Contraseña"><b>* Contraseña</b></label>
-                    <input type="password" class="form-control" name="password" id="password" required>
+                    <input type="password" class="form-control" name="password" id="password"  required>
                 </div>
                 <div class="form-group">
-                                <input id="password1" type="password" class="form-control @error('password') is-invalid @enderror" name="password1" required autocomplete="password1">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>La contraseña introducida no coincide.</strong>
-                                    </span>
-                                @enderror
+                    <label for="Contraseña1"><b>* Confirmar contraseña</b></label>
+                    <input type="password" class="form-control" name="password1" id="password1" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
