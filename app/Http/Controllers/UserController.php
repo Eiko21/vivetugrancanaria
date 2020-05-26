@@ -38,7 +38,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $user = new User;
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+            $user->image=$fileNameToStore;
+        }
+        $user->name=$request->name;
+        $user->city=$request->city;
+        $user->email=$request->email;
+        $user->description=$request->description;
+        $user->password=$request->password;
+        $user->role=$request->role;
+        if($request->role== ('empresa')){
+            $user->contact=$request->contact;
+        }
+        $user->save();
+        return redirect(route('admin.indexusuarios'));
     }
 
     /**
@@ -87,8 +106,9 @@ class UserController extends Controller
         $user->city=$request->city;
         $user->email=$request->email;
         $user->save();
-        return redirect(route('showclient',Auth::user()->id));
+        return redirect(route('showclient', Auth::user()->id));
     }
+
     public function updatePassword(Request $request, $id)
     {
         if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
