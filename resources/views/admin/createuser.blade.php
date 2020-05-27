@@ -25,6 +25,7 @@
                         placeholder="Escriba la descripción del usuario" cols="40"></textarea>
                 </div>
                 <!--    -->
+                <label for="advise">La contraseña debe tener mínimo 8 carácteres.</label>
                 <div class="form-group">
                     <label for="password">Contraseña: <span class="obligatorio">*</span></label>
                     <input type='password' class="form-control" id="password" name="password" maxlength="20" onblur="return validarPassword(this.value)" autocomplete="off"/>
