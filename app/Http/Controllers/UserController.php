@@ -51,14 +51,21 @@ class UserController extends Controller
         $user->city=$request->city;
         $user->email=$request->email;
         $user->description=$request->description;
-        $user->password = bcrypt($request->get('password'));
         $user->role=$request->role;
         if($request->role== ('empresa')){
             $user->contact=$request->contact;
         }
-        $user->save();
-        return redirect(route('indexusuarios'));
-
+        if($request->password == $request->password2){
+            $validatedData = $request->validate([
+                'password' => 'required|string|min:8|confirmed',
+                'password2' => 'required',
+            ]);
+            $user->password = bcrypt($request->get('password'));
+            $user->save();
+            return redirect(route('indexusuarios'));
+        }else{
+            return redirect()->back()->with("error","Las contraseñas no coinciden.");
+        }
     }
 
     /**

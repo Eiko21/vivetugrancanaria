@@ -27,24 +27,14 @@
                 <!--    -->
                 <label for="advise">La contraseña debe tener mínimo 8 carácteres.</label>
                 <div class="form-group">
-                    <label for="password">Contraseña: <span class="obligatorio">*</span></label>
+                    <label for="password"><span class="obligatorio">*</span>Contraseña: </label>
                     <input type='password' class="form-control" id="password" name="password" maxlength="20" onblur="return validarPassword(this.value)" autocomplete="off"/>
                 </div>
                 <div class="form-group">
-                    <label for="password2">Repita la Contraseña: <span class="obligatorio">*</span></label>
+                    <label for="password2"><span class="obligatorio">*</span>Repita la Contraseña: </label>
                     <input type='password' class="form-control" id="password2" name="password2" maxlength="20" onblur="return validarPasswordIguales(password.value,this.value)"/>
                 </div>
-                <!--    
-                <div class="form-group">
-                    <label for="Contraseña"><b>* Contraseña</b></label>
-                    <input type="password" class="form-control" name="password" id="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="Confirmacion"><b>* Confirmar contraseña</b></label>
-                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
-                </div>
-                -->
-                <!--    -->
+                
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Ciudad"><b>* Ciudad</b></label>
@@ -84,17 +74,19 @@
                     </div>
                 </div><br>
                 <div class="text-center">
-                <button type="submit" name="store-user" class="btn btn-primary">Añadir Usuario</button>
+                <button type="submit" name="store-user" onclick="passwordNotMatch()" class="btn btn-primary">Añadir Usuario</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
+    var flag;
     function validarPassword(pass){
         pass = pass.replace(/\+/g, '\+');
         
         mostrarValidacion('#password',pass.length>=8);
+    
     }
 
     function validarPasswordIguales(password,passwordRepetida){
@@ -109,15 +101,22 @@
             $(document).ready(function(){
                 $(nombreCampo).css('border','1px solid #7ca22c');
                 $(nombreCampo).css('box-shadow','0 0 2px 1px #7ca22c');
-                //flag=true;
+                flag=true;
             });
         } else {
             $(document).ready(function(){
                 $(nombreCampo).css('border','1px solid red');
                 $(nombreCampo).css('box-shadow','0 0 2px 1px red');
-                //flag=false;
+                flag=false;
+                
             }); 
         }
+    }
+    </script>
+
+    <script>
+    function passwordNotMatch() {
+        alert("Las contraseñas no coinciden");
     }
     </script>
 @endsection
