@@ -24,6 +24,16 @@
                     <textarea class="form-control" id="description" name="description" rows="10" 
                         placeholder="Escriba la descripción del usuario" cols="40"></textarea>
                 </div>
+                <!--    -->
+                <div class="form-group">
+                    <label for="password">Contraseña: <span class="obligatorio">*</span></label>
+                    <input type='password' class="form-control" id="password" name="password" maxlength="20" onblur="return validarPassword(this.value)" autocomplete="off"/>
+                </div>
+                <div class="form-group">
+                    <label for="password2">Repita la Contraseña: <span class="obligatorio">*</span></label>
+                    <input type='password' class="form-control" id="password2" name="password2" maxlength="20" onblur="return validarPasswordIguales(password.value,this.value)"/>
+                </div>
+                <!--    
                 <div class="form-group">
                     <label for="Contraseña"><b>* Contraseña</b></label>
                     <input type="password" class="form-control" name="password" id="password" required>
@@ -32,6 +42,8 @@
                     <label for="Confirmacion"><b>* Confirmar contraseña</b></label>
                     <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
                 </div>
+                -->
+                <!--    -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Ciudad"><b>* Ciudad</b></label>
@@ -83,6 +95,35 @@
 
         if (password != password_confirmation){
             alert("Las contraseñas no coinciden...);
+        }
+    }
+    </script>
+
+    <script>
+    function validarPassword(pass){
+        pass = pass.replace(/\+/g, '\+');
+        
+        mostrarValidacion('#password',pass.length>=8);
+    }
+
+    function validarPasswordIguales(password,passwordRepetida){
+        password = password.replace(/\+/g, '\+');
+        passwordRepetida = passwordRepetida.replace(/\+/g, '\+');
+        
+        mostrarValidacion('#password2',password.length>=8 && password==passwordRepetida);
+    }
+
+    function mostrarValidacion(nombreCampo,valido){
+        if (valido){
+            $(document).ready(function(){
+                $(nombreCampo).css('border','1px solid #7ca22c');
+                $(nombreCampo).css('box-shadow','0 0 2px 1px #7ca22c');
+            });
+        } else {
+            $(document).ready(function(){
+                $(nombreCampo).css('border','1px solid red');
+                $(nombreCampo).css('box-shadow','0 0 2px 1px red');
+            }); 
         }
     }
     </script>
