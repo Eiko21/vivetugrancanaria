@@ -51,7 +51,7 @@ class UserController extends Controller
         $user->city=$request->city;
         $user->email=$request->email;
         $user->description=$request->description;
-        $user->password=$request->password;
+        $user->password = bcrypt($request->get('password'));
         $user->role=$request->role;
         if($request->role== ('empresa')){
             $user->contact=$request->contact;

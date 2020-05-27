@@ -88,16 +88,6 @@
             </form>
         </div>
     </div>
-    <script>
-    function comprobarClave(){
-        password= document.f1.password.value;
-        password_confirmation = document.f1.password_confirmation.value;
-
-        if (password != password_confirmation){
-            alert("Las contraseñas no coinciden...);
-        }
-    }
-    </script>
 
     <script>
     function validarPassword(pass){
@@ -118,11 +108,13 @@
             $(document).ready(function(){
                 $(nombreCampo).css('border','1px solid #7ca22c');
                 $(nombreCampo).css('box-shadow','0 0 2px 1px #7ca22c');
+                //flag=true;
             });
         } else {
             $(document).ready(function(){
                 $(nombreCampo).css('border','1px solid red');
                 $(nombreCampo).css('box-shadow','0 0 2px 1px red');
+                //flag=false;
             }); 
         }
     }
