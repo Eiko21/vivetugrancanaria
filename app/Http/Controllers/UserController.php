@@ -58,6 +58,7 @@ class UserController extends Controller
         }
         $user->save();
         return redirect(route('indexusuarios'));
+
     }
 
     /**
@@ -129,6 +130,25 @@ class UserController extends Controller
         $user->save();
  
         return redirect()->back()->with("success","Contraseña cambiada con éxito");
+    }
+
+    public function createPassword(Request $request)
+    {
+ 
+        if(!strcmp($request->get('password'), $request->get('password_confirmation')) == 0){
+            return redirect()->back()->with("error");
+            
+        }
+ 
+        $validatedData = $request->validate([
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' =>'required',
+        ]);
+ 
+
+        $request->password = bcrypt($request->get('password'));
+            return redirect()->back()->with("success");
+        
     }
 
     /**

@@ -45,3 +45,4 @@ Route::get('/users/{userid}/edit', 'UserController@edit')->name('editclient');
 Route::put('/users/{userid}', 'UserController@update')->name('updateclient');
 Route::post('/users/{userid}', 'UserController@updatePassword')->name('updatePassword');
 Route::delete('/users/{userid}', 'UserController@destroy')->name('deleteclient');
+Route::post('/users/create', 'UserController@createPassword')->name('createPassword');

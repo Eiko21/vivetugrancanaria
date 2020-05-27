@@ -26,15 +26,15 @@
                 </div>
                 <div class="form-group">
                     <label for="Contraseña"><b>* Contraseña</b></label>
-                    <input type="password" class="form-control" name="password" id="password"  required>
+                    <input type="password" class="form-control" name="password" id="password" required>
                 </div>
                 <div class="form-group">
-                    <label for="Contraseña1"><b>* Confirmar contraseña</b></label>
-                    <input type="password" class="form-control" name="password1" id="password1" required>
+                    <label for="Confirmacion"><b>* Confirmar contraseña</b></label>
+                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="Ciudad"><b>Ciudad</b></label>
+                        <label for="Ciudad"><b>* Ciudad</b></label>
                         <input type="text" class="form-control" name="city" id="city" required>
                     </div>
                     <div class="form-group col-md-4">
@@ -76,4 +76,14 @@
             </form>
         </div>
     </div>
+    <script>
+    function comprobarClave(){
+        password= document.f1.password.value;
+        password_confirmation = document.f1.password_confirmation.value;
+
+        if (password != password_confirmation){
+            alert("Las contraseñas no coinciden...);
+        }
+    }
+    </script>
 @endsection
