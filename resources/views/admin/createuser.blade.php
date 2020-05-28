@@ -15,23 +15,24 @@
                         <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="Email"><b>E-mail</b></label>
+                        <label for="Email"><b>* E-mail</b></label>
                         <input type="text" class="form-control" name="email" id="email" placeholder="example@domain.com" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="Descripcion"><b>* Descripción</b></label>
+                    <label for="Descripcion"><b>Descripción</b></label>
+                    <label for="advise"><i>  (Añadir si el usuario es una empresa)</i></label>
                     <textarea class="form-control" id="description" name="description" rows="10" 
                         placeholder="Escriba la descripción del usuario" cols="40"></textarea>
                 </div>
                 <label for="advise">La contraseña debe tener mínimo 8 carácteres.</label>
                 <div class="form-group">
-                    <label for="password"><span class="obligatorio">*</span>Contraseña: </label>
+                    <label for="password"><b><span class="obligatorio">*</span>Contraseña: </b></label>
                     <input type='password' class="form-control" id="password" name="password" maxlength="20" autocomplete="off"
                         onblur="validarPassword(this.value)"/>
                 </div>
                 <div class="form-group">
-                    <label for="password2"><span class="obligatorio">*</span>Repita la Contraseña: </label>
+                    <label for="password2"><b><span class="obligatorio">*</span>Repita la Contraseña: </b></label>
                     <input type='password' class="form-control" id="password2" name="password2" maxlength="20"
                         onblur="validarPasswordIguales(password.value,this.value)"/>
                 </div>
@@ -43,11 +44,12 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="Contacto"><b>Contacto</b></label>
+                        <label for="advise"><i>  (Añadir si el usuario es una empresa)</i></label>
                         <input type="text" class="form-control" name="contact" id="contact">
                     </div>
                     <fieldset class="form-group">
                         <div class="row">
-                            <legend class="col-md-8 col-form-label text-md-right"><b>{{ __('Tipo de perfil') }}</b></legend>
+                            <legend class="col-md-8 col-form-label text-md-right"><b>{{ __('* Tipo de perfil') }}</b></legend>
                             <div class="col-md-10 text-center">
                                 <div class="form-check">
                                 <input class="form-check-input @error('role') is-invalid @enderror" type="radio" name="role" 
@@ -112,7 +114,7 @@
             }
         }
         function passwordNotMatch() {
-            alert("Las contraseñas no coinciden");
+            if(flag===false) alert("Las contraseñas no coinciden");
         }
     </script>
 @endsection

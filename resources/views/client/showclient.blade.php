@@ -38,7 +38,8 @@
                                <form class="form-delete form-buttons" action="{{  url(route('deleteclient', $user->id))  }}" method="POST"> 
                                    <input type='hidden' name='_method' value='DELETE'>
                                    @csrf
-                                   <button type="submit" style="margin-left: 10px; width:150px; height:40px" id="delete" name="delete-activity"class="btn btn-danger">Eliminar cuenta<i class="fas fa-trash"></i></button>
+                                   <button type="submit" style="margin-left: 10px; width:150px; height:40px" id="delete" 
+                                        name="delete-activity"class="btn btn-danger">Eliminar cuenta<i class="fas fa-trash"></i></button>
                                </form>
                            </div>
                         </div>

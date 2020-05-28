@@ -51,28 +51,39 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany('App\Role')->withTimestamps();
+        return $this->belongsToMany('App\Role');
     }
 
-    public function authorizeRoles($roles)
-    {
-        abort_unless($this->hasAnyRole($roles), 401);
-        return true;
-    }    
-    
-    public function hasAnyRole($roles)
-    {
-        if (is_array($roles)) {
-            foreach ($roles as $role) 
-                if ($this->hasRole($role)) return true;
-        } else {
-            if ($this->hasRole($roles)) return true;
-        }
-        return false;
+    public function isAdmin(){
+        return $this->role=="administrador" ? true : false;
+    }
+    public function isClient(){
+        return $this->role=="cliente" ? true : false;
+    }
+    public function isCompany(){
+        return $this->role=="empresa" ? true : false;
     }
     
     public function hasRole($role)
     {
         return $this->roles()->where('name', $role)->first() ? true : false;
     }
+
+    // public function authorizeRoles($roles)
+    // {
+    //     abort_unless($this->hasAnyRole($roles), 401);
+    //     return true;
+    // }    
+    
+    // public function hasAnyRole($roles)
+    // {
+    //     if (is_array($roles)) {
+    //         foreach ($roles as $role) 
+    //             if ($this->hasRole($role)) return true;
+    //     } else {
+    //         if ($this->hasRole($roles)) return true;
+    //     }
+    //     return false;
+    // }   
+
 }

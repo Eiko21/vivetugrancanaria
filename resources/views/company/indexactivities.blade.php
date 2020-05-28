@@ -32,7 +32,7 @@
                 <h3 style="margin:15%; padding-top:4.5%; padding-left:6%;">No hay actividades organizadas</h3>
             @endif
         @else        
-            <div class="table-responsive" style="margin: 1%; padding-bottom: 1%; margin-left:5%; padding-top: 3%;">
+            <div class="table-responsive" style="margin: 1%; padding-bottom: 1%; margin-left:5%;">
                 @foreach ($activities as $activity)
                     <br>
                         <div class="card">
