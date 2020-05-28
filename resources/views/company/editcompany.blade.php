@@ -68,7 +68,6 @@
                                     <div class="alert alert-success">{{ session('success') }}</div>
                                 @endif
                                 <form class="form-horizontal" method="POST" action="{{ route('updateCompanyPassword', $details->id) }}">
-                                    <input type='hidden' name='_method' value='PUT'>
                                     @csrf
                                     <div class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
                                         <div class="col-md-8">

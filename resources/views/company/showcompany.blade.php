@@ -49,12 +49,14 @@
                             <hr>
                             <div class="col-sm-5 col-xs-6 tital">Población: {{ $company->city }}</div>
                             <br><br><br>
-                            <div class="col-sm-5 col-xs-6 tital">
-                                @csrf
-                                <a href="{{  url(route('editcompany', $company->id))  }}" id="update-profile-client" class="btn btn-success">
-                                    Editar perfil <i class="fas fa-edit"></i>
-                                </a><br><br>
-                            </div>
+                            @if(!Auth::guest() && Auth::user()->role === ('empresa'))
+                                <div class="col-sm-5 col-xs-6 tital">
+                                    @csrf
+                                    <a href="{{  url(route('editcompany', $company->id))  }}" id="update-profile-client" class="btn btn-success">
+                                        Editar perfil <i class="fas fa-edit"></i>
+                                    </a><br><br>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

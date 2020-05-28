@@ -29,24 +29,27 @@
                                 </li>
                             </ul>
                             <hr>
-                            <div class="col-sm-5 col-xs-6 tital">Población: {{ $user->city }}</div>
+                            <div class="col-sm-5 col-xs-6 tital">Ciudad: {{ $user->city }}</div>
                             <br><br><br>
-                            <div class="col-sm-5 col-xs-6 tital">
-                                <a href="{{  url(route('editclient', $user->id))  }}" id="update-profile-client" class="btn btn-success">
-                                    Editar perfil <i class="fas fa-edit"></i>
-                                </a><br><br>
-                                <form class="form-delete form-buttons" action="{{  url(route('deleteclient', $user->id))  }}" method="POST"> 
-                                    <input type='hidden' name='_method' value='DELETE'>
-                                    @csrf
-                                    <button type="submit" id="delete" name="delete-activity"class="btn btn-danger">
-                                        Eliminar cuenta<i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
-                            </div>
+                            <div class="row col-xs-12">
+                                <a href="{{  url(route('editclient', $user->id))  }}" style="margin-left: 10px; width:150px; height:40px" 
+                                    id="update-profile-client" class="btn btn-success">Editar perfil <i class="fas fa-edit"></i></a><br><br>
+                                <span class="input-group-addon"></span>
+                               <form class="form-delete form-buttons" action="{{  url(route('deleteclient', $user->id))  }}" method="POST"> 
+                                   <input type='hidden' name='_method' value='DELETE'>
+                                   @csrf
+                                   <button type="submit" style="margin-left: 10px; width:150px; height:40px" id="delete" name="delete-activity"class="btn btn-danger">Eliminar cuenta<i class="fas fa-trash"></i></button>
+                               </form>
+                           </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(".form-delete").on("submit", function(){
+            return confirm("Si borra su cuenta perderá el acceso a sus tickets. ¿Está seguro que desea eliminar su cuenta?");
+        });
+     </script>
 @endsection

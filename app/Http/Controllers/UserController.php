@@ -55,10 +55,6 @@ class UserController extends Controller
         if($request->role == ('empresa')) $user->contact=$request->contact;
         
         if($request->password == $request->password2){
-        //     $validatedData = $request->validate([
-        //         'password' => 'required|string|min:8|confirmed',
-        //         'password2' => 'required|string|min:8|confirmed',
-        //     ]);
             $user->password = bcrypt($request->get('password'));
             $user->save();
             return redirect(route('indexusuarios'));
@@ -151,9 +147,13 @@ class UserController extends Controller
                 unlink(public_path('/img/'.$user->image));
             }
         }
- 
-        $user->delete();
-        if(Auth::user()->role == ('administrador')) return redirect(route('indexusuarios'));
-        else if(Auth::user()->role == ('cliente')) return redirect(route('indexactivities'));
+        
+        if(Auth::user()->role == ('administrador')) {
+            $user->delete();
+            return redirect(route('indexusuarios'));
+        }else if(Auth::user()->role == ('cliente')) {
+            $user->delete();
+            return redirect(route('indexactivities'));
+        }
     }
 }
