@@ -56,10 +56,10 @@ class UserController extends Controller
             $user->contact=$request->contact;
         }
         if($request->password == $request->password2){
-            $validatedData = $request->validate([
+            /*$validatedData = $request->validate([
                 'password' => 'required|string|min:8|confirmed',
                 'password2' => 'required',
-            ]);
+            ]);*/
             $user->password = bcrypt($request->get('password'));
             $user->save();
             return redirect(route('indexusuarios'));

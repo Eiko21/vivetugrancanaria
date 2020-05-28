@@ -112,11 +112,13 @@
             }); 
         }
     }
-    </script>
 
-    <script>
     function passwordNotMatch() {
-        alert("Las contraseñas no coinciden");
+        if(flag==false){
+            alert("Las contraseñas no coinciden");
+        }
     }
     </script>
+
+
 @endsection
