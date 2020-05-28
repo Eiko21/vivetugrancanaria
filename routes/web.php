@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/companies/{companyid}', 'CompanyController@show')->name('showcompany');
 Route::get('/companies/{companyid}/edit', 'CompanyController@edit')->name('editcompany');
 Route::put('/companies/{companyid}', 'CompanyController@update')->name('updatecompany');
-Route::put('/company/{companyid}', 'CompanyController@updatePassword')->name('updateCompanyPassword');
+Route::post('/companies/{companyid}', 'CompanyController@updatePassword')->name('updateCompanyPassword');
 
 Route::get('/activities', 'ActivityController@index')->name('indexactivities');
 Route::get('/activities/create', 'ActivityController@create')->name('createactivity');
@@ -41,5 +41,5 @@ Route::get('/users', 'UserController@index')->name('indexusuarios');
 Route::get('/users/{userid}', 'UserController@show')->name('showclient');
 Route::get('/users/{userid}/edit', 'UserController@edit')->name('editclient');
 Route::put('/users/{userid}', 'UserController@update')->name('updateclient');
-Route::put('/client/{userid}', 'UserController@updatePassword')->name('updatePassword');
+Route::post('/users/{userid}', 'UserController@updatePassword')->name('updatePassword');
 Route::delete('/users/{userid}', 'UserController@destroy')->name('deleteclient');
