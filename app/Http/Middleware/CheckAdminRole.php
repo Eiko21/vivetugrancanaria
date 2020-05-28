@@ -20,9 +20,6 @@ class CheckAdminRole
 
         $user = Auth::user();
         if($user->isAdmin()) return $next($request);
-        // foreach($roles as $role){
-        //     if($user->hasRole($role)) return $next($request);
-        // }
 
         return redirect(route('login'));
     }
