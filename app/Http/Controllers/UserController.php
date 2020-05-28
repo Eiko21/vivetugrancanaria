@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.createuser');
     }
 
     /**
@@ -38,7 +38,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_' .time().'.' .$extension;
+            $path=$request->file('image')->move(public_path('/img'), $fileNameToStore);
+            $user->image=$fileNameToStore;
+        }
+        $user->name=$request->name;
+        $user->city=$request->city;
+        $user->email=$request->email;
+        if($request->role == ('empresa')) $user->description=$request->description;
+        $user->role=$request->role;
+        if($request->role == ('empresa')) $user->contact=$request->contact;
+        
+        if($request->password == $request->password2){
+        //     $validatedData = $request->validate([
+        //         'password' => 'required|string|min:8|confirmed',
+        //         'password2' => 'required|string|min:8|confirmed',
+        //     ]);
+            $user->password = bcrypt($request->get('password'));
+            $user->save();
+            return redirect(route('indexusuarios'));
+        }else{
+            return redirect()->back()->with("error","Las contraseñas no coinciden.");
+        }
     }
 
     /**

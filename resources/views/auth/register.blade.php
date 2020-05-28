@@ -48,11 +48,24 @@
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de perfil') }}</label>
 
                             <div class="col-md-6">
-                                <input id="role" type="radio" class="form-control @error('role') is-invalid @enderror" name="role" 
+                                {{-- <input id="role" type="radio" class="form-control @error('role') is-invalid @enderror" name="role" 
                                 value="cliente" required autocomplete="role" style="width: 0%; display: inline;">Cliente
                                 <input id="role" type="radio" class="form-control @error('role') is-invalid @enderror" name="role" 
-                                value="empresa" required autocomplete="role" style="width: 0%; display: inline;">Empresa
-
+                                value="empresa" required autocomplete="role" style="width: 0%; display: inline;">Empresa --}}
+                                <div class="form-check">
+                                    <input class="form-check-input @error('role') is-invalid @enderror" type="radio" name="role" 
+                                        id="cliente" value="cliente" required autocomplete="role">
+                                        <label class="form-check-label" for="cliente">
+                                            Cliente
+                                        </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input @error('role') is-invalid @enderror" type="radio" name="role" 
+                                        id="empresa" value="empresa" required autocomplete="role">
+                                        <label class="form-check-label" for="empresa">
+                                            Empresa
+                                        </label>
+                                </div>
                                 @error('role')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

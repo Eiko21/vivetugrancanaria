@@ -13,12 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('company.indexactivities');
-// });
-
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/companies/{companyid}', 'CompanyController@show')->name('showcompany');
 Route::get('/companies/{companyid}/edit', 'CompanyController@edit')->name('editcompany');
@@ -38,6 +34,8 @@ Route::get('/tickets/create/{activityid}', 'TicketController@create')->name('cre
 Route::post('/tickets/{activityid}', 'TicketController@store')->name('storeticket');
 
 Route::get('/users', 'UserController@index')->name('indexusuarios');
+Route::get('/users/create', 'UserController@create')->name('createuser');
+Route::post('/users', 'UserController@store')->name('storeuser');
 Route::get('/users/{userid}', 'UserController@show')->name('showclient');
 Route::get('/users/{userid}/edit', 'UserController@edit')->name('editclient');
 Route::put('/users/{userid}', 'UserController@update')->name('updateclient');

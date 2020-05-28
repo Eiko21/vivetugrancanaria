@@ -6,7 +6,14 @@
                 <h2>Listado de usuarios registrados</h2>
             </div>
         </div>
-        <div class="table-responsive">
+        <div class="row">
+            <div class="col text-right">
+                <a href="{{  url(route('createuser'))  }}" id="add-activity" class="btn btn-info" style="margin-right: 10%;">
+                    <i class="fas fa-plus-circle"></i> AÑADIR USUARIO</a>
+            </div>
+        </div>
+
+        <div class="table-responsive" style="margin-top: 2.6%;">
             <table class="info-table">
                 <tr>
                     <th>Nombre</th>
