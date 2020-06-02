@@ -36,14 +36,14 @@
                                 @if($user->description !== null)
                                     <b>{{ $user->description}}</b>
                                 @else
-                                    <b>Empresa sin descripción</b>
+                                    <b>Usuario sin descripción</b>
                                 @endif
                             </td>
                             <td>
                                 @if($user->contact !== null)
                                     <b>{{ $user->contact}}</b>
                                 @else
-                                    <b>Empresa sin contacto</b>
+                                    <b>Usuario sin contacto</b>
                                 @endif
                             </td>
                             <td>

@@ -16,8 +16,13 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::all();
-        return view('company.indexactivities', compact('activities'));
+        if(!Auth::guest() && Auth::user()->role === ('empresa')){
+            $activities = Activity::all()->where('companyid', Auth::user()->id);
+            return view('company.indexactivities', compact('activities'));
+        }else{
+            $activities = Activity::all();
+            return view('client.indexactivities', compact('activities'));
+        }
     }
 
     /**

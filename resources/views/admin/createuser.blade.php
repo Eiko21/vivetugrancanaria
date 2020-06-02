@@ -25,14 +25,14 @@
                     <textarea class="form-control" id="description" name="description" rows="10" 
                         placeholder="Escriba la descripción del usuario" cols="40"></textarea>
                 </div>
-                <label for="advise">La contraseña debe tener mínimo 8 carácteres.</label>
                 <div class="form-group">
-                    <label for="password"><b><span class="obligatorio">*</span>Contraseña: </b></label>
+                    <label for="password"><b><span class="obligatorio">*</span>Contraseña </b></label>
+                    <label for="advise"><i>  (Debe tener un mínimo 8 carácteres)</i></label>
                     <input type='password' class="form-control" id="password" name="password" maxlength="20" autocomplete="off"
                         onblur="validarPassword(this.value)"/>
                 </div>
                 <div class="form-group">
-                    <label for="password2"><b><span class="obligatorio">*</span>Repita la Contraseña: </b></label>
+                    <label for="password2"><b><span class="obligatorio">*</span>Repita la contraseña </b></label>
                     <input type='password' class="form-control" id="password2" name="password2" maxlength="20"
                         onblur="validarPasswordIguales(password.value,this.value)"/>
                 </div>
